@@ -5,11 +5,9 @@ import { Router, browserHistory } from "react-router";
 import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import "styles/base.css";
-import "styles/site.css";
 import "./manifest.json";
 import rootReducer from "./reducers";
 import injectTapEventPlugin from "react-tap-event-plugin";
-
 import DevTools from "../client/devtools";
 
 const enhancer = compose(
@@ -17,7 +15,6 @@ const enhancer = compose(
   // applyMiddleware(d1, d2, d3),
   DevTools.instrument()
 );
-
 
 window.webappStart = () => {
   injectTapEventPlugin();
