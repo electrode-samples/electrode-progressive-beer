@@ -2,11 +2,13 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {GridList} from "material-ui/GridList";
+import {Card, CardMedia, CardTitle} from "material-ui/card";
 import TextField from "material-ui/TextField";
 import SearchIcon from "material-ui/svg-icons/action/search";
 import Header from "./header";
 import BeerCard from "./beercard";
 import Footer from "./footer";
+import WorldImg from "../images/beer-map.png";
 
 const styles = {
   root: {
@@ -35,6 +37,10 @@ const styles = {
   search: {
     textAlign: "center",
     paddingBottom: "20px"
+  },
+  overlayContentStyle: {
+    textAlign: "center",
+    backgroundColor: "rgba(0,0,0,0)"
   }
 };
 
@@ -71,6 +77,16 @@ export class Home extends React.Component {
             </GridList>
           </div>
 
+          <Card>
+            <CardMedia
+              overlay={<CardTitle title="Beer from around the world!" />}
+              overlayContentStyle={styles.overlayContentStyle}
+            >
+              <img src={WorldImg} />
+            </CardMedia>
+          </Card>
+          <br />
+          
           <Footer />
         </div>
       </MuiThemeProvider>

@@ -26,18 +26,19 @@ const Header = () => (
     <AppBar
       title="Progressive Beer"
       style={styles.appBarStyle}
+      iconElementLeft={<IconButton></IconButton>}
       iconElementRight={
-      <IconMenu
-        iconButtonElement={
-          <IconButton><MoreVertIcon /></IconButton>
-        }
-        targetOrigin={{horizontal: "right", vertical: "top"}}
-        anchorOrigin={{horizontal: "right", vertical: "top"}}
-      >
-        <MenuItem primaryText="Home" href="/index.html"/>
-        <MenuItem primaryText="About" href="/about.html" />
-      </IconMenu>
-    }
+        <IconMenu
+          iconButtonElement={
+            <IconButton><MoreVertIcon /></IconButton>
+          }
+          targetOrigin={{horizontal: "right", vertical: "top"}}
+          anchorOrigin={{horizontal: "right", vertical: "top"}}
+        >
+          <MenuItem primaryText="Home" href="/"/>
+          <MenuItem primaryText="About" href="/about" />
+        </IconMenu>
+      }
     />
 
     <Card style={styles.BeerImgCard}>
