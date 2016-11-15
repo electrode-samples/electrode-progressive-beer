@@ -26,7 +26,7 @@ const Header = () => (
     <AppBar
       title="Progressive Beer"
       style={styles.appBarStyle}
-      iconElementLeft={<IconButton></IconButton>}
+      iconElementLeft={<IconButton />}
       iconElementRight={
         <IconMenu
           iconButtonElement={

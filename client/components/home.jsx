@@ -64,8 +64,8 @@ export class Home extends React.Component {
         <div>
           <Header />
 
-          <h1 style={styles.header}> Explore </h1>
-          <p style={styles.subText}> There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information. </p>
+          <h1 style={styles.header}>Explore</h1>
+          <p style={styles.subText}>There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</p>
 
           <div style={styles.search}>
             <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
@@ -86,7 +86,7 @@ export class Home extends React.Component {
             </CardMedia>
           </Card>
           <br />
-          
+
           <Footer />
         </div>
       </MuiThemeProvider>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardMedia, CardTitle, CardText} from "material-ui/card";
+import {Card, CardTitle, CardText} from "material-ui/card";
 
 const styles = {
   noBullets: {
@@ -14,7 +14,7 @@ const styles = {
   containerStyle: {
     backgroundColor: "#424242"
   }
-}
+};
 
 const Footer = () => (
   <div>
@@ -22,7 +22,9 @@ const Footer = () => (
       <CardTitle subtitle={<h1 style={styles.whiteText}>More Resources</h1>} />
       <CardText>
         <ul style={styles.noBullets}>
-          <li style={styles.whiteText}>All data supplied by <a style={styles.whiteText} href="http://www.brewerydb.com/">BreweryDB</a></li>
+          <li style={styles.whiteText}>All data supplied by
+            <a style={styles.whiteText} href="http://www.brewerydb.com/">BreweryDB</a>
+          </li>
           <li style={styles.whiteText}><a style={styles.whiteText} href="/">Home</a></li>
           <li style={styles.whiteText}><a style={styles.whiteText} href="/about.html">About</a></li>
         </ul>
