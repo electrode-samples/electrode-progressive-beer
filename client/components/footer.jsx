@@ -1,32 +1,35 @@
 import React from "react";
-import {Card, CardMedia, CardTitle, CardText} from "material-ui/card";
-import beerMapImage from "../images/beer-map.png";
+import {Card, CardTitle, CardText} from "material-ui/card";
 
-const overlayContentStyle = {
-  textAlign: "center",
-  backgroundColor: "rgba(0,0,0,0)"
+const styles = {
+  noBullets: {
+    listStyleType: "none"
+  },
+  cardTitle: {
+    fontFamily: "'Gabriela', serif",
+    paddingLeft: "2%",
+    color: "#e0e0e0"
+  },
+  whiteText: {
+    fontFamily: "'Gabriela', serif",
+    color: "#9e9e9e"
+  },
+  containerStyle: {
+    backgroundColor: "#424242"
+  }
 };
 
 const Footer = () => (
   <div>
-    <Card>
-      <CardMedia
-        overlay={<CardTitle title="Beer from around the world!" />}
-        overlayContentStyle={overlayContentStyle}
-      >
-        <img src={`/js/${beerMapImage}`} />
-      </CardMedia>
-    </Card>
-
-    <br />
-
-    <Card>
-      <CardTitle subtitle="More Resources" />
+    <Card containerStyle={styles.containerStyle}>
+      <CardTitle subtitle={<h1 style={styles.cardTitle}>More Resources</h1>} />
       <CardText>
-        <ul>
-          <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
+        <ul style={styles.noBullets}>
+          <li style={styles.whiteText}>All data supplied by
+            <a style={styles.whiteText} href="http://www.brewerydb.com/">BreweryDB</a>
+          </li>
+          <li style={styles.whiteText}><a style={styles.whiteText} href="/">Home</a></li>
+          <li style={styles.whiteText}><a style={styles.whiteText} href="/about">About</a></li>
         </ul>
       </CardText>
     </Card>

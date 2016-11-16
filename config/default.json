@@ -19,6 +19,9 @@
           }
         }
       }
+    },
+    "beer": {
+      "module": "./server/plugins/beer"
     }
   }
 }
