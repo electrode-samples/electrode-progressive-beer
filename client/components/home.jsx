@@ -61,7 +61,6 @@ class HomeWrapper extends React.Component {
     .then((resp) => {
       if (resp.status === 200) {
         this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
-        const beerStyles = JSON.parse(resp.body);
       } else {
         this.setState({testResult: `GET FAILED with status ${resp.status}` });
       }
