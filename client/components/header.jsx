@@ -5,7 +5,7 @@ import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-import BeerImg from "../images/beer.jpg";
+import beerImage from "../images/beer.jpg";
 
 const styles = {
   overlayContentStyle: {
@@ -53,7 +53,7 @@ const Header = () => (
         }
         overlayContentStyle={styles.overlayContentStyle}
       >
-        <img src={BeerImg} />
+        <img src={`/js/${beerImage}`} />
       </CardMedia>
     </Card>
   </div>

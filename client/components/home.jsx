@@ -1,14 +1,14 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import {GridList} from "material-ui/GridList";
-import {Card, CardMedia, CardTitle} from "material-ui/card";
+import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import TextField from "material-ui/TextField";
 import SearchIcon from "material-ui/svg-icons/action/search";
+import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import Header from "./header";
-import BeerCard from "./beer-card";
+import BeerList from "./beer-list";
 import Footer from "./footer";
-import WorldImg from "../images/beer-map.png";
+import beerMapImage from "../images/beer-map.png";
 
 const styles = {
   root: {
@@ -16,10 +16,6 @@ const styles = {
     flexWrap: "wrap",
     minHeight: "800px",
     justifyContent: "space-around"
-  },
-  gridList: {
-    width: "90%",
-    minHeight: "800px"
   },
   header: {
     fontSize: "40px",
@@ -97,25 +93,24 @@ export class Home extends React.Component {
           </div>
 
           <div style={styles.root}>
-            <GridList style={styles.gridList} cols={3}>
-              <BeerCard />
-              <BeerCard />
-              <BeerCard />
-              <BeerCard />
-            </GridList>
+            <BeerList />
           </div>
 
-          <Card>
-            <CardMedia
-              overlay={<CardTitle title="Beer from around the world!" />}
-              overlayContentStyle={styles.overlayContentStyle}
-            >
-              <img src={WorldImg} />
-            </CardMedia>
-          </Card>
-          <br />
+          <AboveTheFoldOnlyServerRender skip={true}>
+            <div>
+              <Card>
+                <CardMedia
+                  overlay={<CardTitle title="Beer from around the world!" />}
+                  overlayContentStyle={styles.overlayContentStyle}
+                >
+                  <img src={`/js/${beerMapImage}`} />
+                </CardMedia>
+              </Card>
+              <br />
 
-          <Footer />
+              <Footer />
+            </div>
+          </AboveTheFoldOnlyServerRender>
         </div>
       </MuiThemeProvider>
     );

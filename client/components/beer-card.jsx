@@ -2,7 +2,7 @@ import React from "react";
 import {Card, CardActions, CardMedia, CardText} from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import Divider from "material-ui/Divider";
-import Beer from "../images/beer-icon-240.png";
+import beerIconImage from "../images/beer-icon-240.png";
 
 const styles = {
   card: {
@@ -15,8 +15,9 @@ export class BeerCard extends React.Component {
     return (
       <Card style={styles.card}>
         <CardMedia>
-          <img src={Beer} />
+          <img src={`/js/${beerIconImage}`} />
         </CardMedia>
+
         <CardText>
           Some data about beer
         </CardText>

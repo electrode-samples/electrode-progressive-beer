@@ -1,10 +1,10 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import {Card, CardMedia, CardTitle} from "material-ui/card";
+import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import Header from "./header";
 import Footer from "./footer";
-import WorldImg from "../images/beer-map.png";
-import BreweryDbImg from "../images/brewerydb-logo.png";
+import beerMapImage from "../images/beer-map.png";
+import brewerydbImage from "../images/brewerydb-logo.png";
 
 const styles = {
   titleHeader: {
@@ -56,12 +56,12 @@ const About = () => (
           overlay={<CardTitle title="Beer from around the world!" />}
           overlayContentStyle={styles.overlayContentStyle}
         >
-          <img src={WorldImg} />
+          <img src={`/js/${beerMapImage}`} />
         </CardMedia>
       </Card>
 
       <h1 style={styles.dataHeader}> Our Data </h1>
-      <p style={styles.link}><img style={styles.breweryDb} src={BreweryDbImg} /></p>
+      <p style={styles.link}><img style={styles.breweryDb} src={`/js/${brewerydbImage}`} /></p>
       <p style={styles.subText}> All of our data is supplied by the team over at BreweryDb.com. If you'd like to learn more about them, please check out their website for a huge database of breweries, beers, beer events and even brewers guilds! You can even submit new beers as the database is constantly kept up to date. </p>
 
       <Footer />
