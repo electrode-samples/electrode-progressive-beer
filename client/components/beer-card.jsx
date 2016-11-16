@@ -8,7 +8,7 @@ const styles = {
   card: {
     width: "250px"
   }
-}
+};
 
 export class BeerCard extends React.Component {
   render() {

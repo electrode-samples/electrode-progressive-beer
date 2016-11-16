@@ -30,6 +30,7 @@ const styles = {
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",
     textAlign: "center",
+    height: "50%",
     backgroundColor: "rgba(0,0,0,0)"
   },
   link: {

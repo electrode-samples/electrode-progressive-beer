@@ -25,7 +25,6 @@ const styles = {
   }
 };
 
-
 const Header = () => (
   <div>
     <AppBar

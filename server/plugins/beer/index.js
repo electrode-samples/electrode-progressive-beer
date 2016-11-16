@@ -1,10 +1,14 @@
 "use strict";
-const fs = require('fs');
+
+const fs = require("fs");
 
 exports.register = (server, options, next) => {
   const getBeerStyles = (reply) => {
-    fs.readFile(__dirname + '/data/styles.json', 'utf8', function (err, beerStyles) {
-      if (err) throw err;
+    fs.readFile(`${__dirname}/data/styles.json`, "utf8", (err, beerStyles) => {
+      if (err) {
+        throw err;
+      }
+
       reply(null, JSON.parse(beerStyles));
     });
   };

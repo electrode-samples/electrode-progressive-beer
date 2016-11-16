@@ -2,7 +2,7 @@ import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {GridList} from "material-ui/GridList";
 import Header from "./header";
-import BeerCard from "./beercard";
+import BeerCard from "./beer-card";
 import Footer from "./footer";
 
 const styles = {
