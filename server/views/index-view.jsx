@@ -12,14 +12,6 @@ function storeInitializer(req) {
       initialState = {
         data: "This data is obtained from Redux store"
       };
-    } else if(req.path === "/ssrcachingtemplatetype") {
-      initialState = {
-        count: 100
-      };
-    } else if(req.path === "/ssrcachingsimpletype") {
-      initialState = {
-        count: 100
-      };
     } else if (req.path === "/above-the-fold") {
       initialState = {
         skip: req.query.skip === "true"
