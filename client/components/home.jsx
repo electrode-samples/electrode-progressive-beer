@@ -2,22 +2,24 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {GridList} from "material-ui/GridList";
+import {Card, CardMedia, CardTitle} from "material-ui/card";
 import TextField from "material-ui/TextField";
 import SearchIcon from "material-ui/svg-icons/action/search";
 import Header from "./header";
-import BeerCard from "./beercard";
+import BeerCard from "./beer-card";
 import Footer from "./footer";
+import WorldImg from "../images/beer-map.png";
 
 const styles = {
   root: {
     display: "flex",
     flexWrap: "wrap",
+    minHeight: "800px",
     justifyContent: "space-around"
   },
   gridList: {
-    width: 500,
-    height: 450,
-    overflowY: "auto"
+    width: "90%",
+    minHeight: "800px"
   },
   header: {
     fontSize: "40px",
@@ -35,10 +37,40 @@ const styles = {
   search: {
     textAlign: "center",
     paddingBottom: "20px"
+  },
+  overlayContentStyle: {
+    fontFamily: "'Gabriela', serif",
+    textAlign: "center",
+    height: "50%",
+    backgroundColor: "rgba(0,0,0,0)"
   }
 };
 
 class HomeWrapper extends React.Component {
+  constructor() {
+    super();
+
+    fetch("/getBeerStyles", {
+      credentials: "same-origin",
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then((resp) => {
+      if (resp.status === 200) {
+        this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
+        const beerStyles = JSON.parse(resp.body);
+      } else {
+        this.setState({testResult: `GET FAILED with status ${resp.status}` });
+      }
+    })
+    .catch((e) => {
+      this.setState({testResult: `GET FAILED: ${e.toString()}`});
+    });
+  }
+
   render() {
     return (
       <Home data={this.props.data}/>
@@ -58,18 +90,31 @@ export class Home extends React.Component {
         <div>
           <Header />
 
-          <h1 style={styles.header}> Explore </h1>
-          <p style={styles.subText}> There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information. </p>
+          <h1 style={styles.header}>Explore</h1>
+          <p style={styles.subText}>There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</p>
 
           <div style={styles.search}>
             <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
           </div>
 
           <div style={styles.root}>
-            <GridList cellHeight={180} style={styles.gridList}>
+            <GridList style={styles.gridList} cols={3}>
+              <BeerCard />
+              <BeerCard />
+              <BeerCard />
               <BeerCard />
             </GridList>
           </div>
+
+          <Card>
+            <CardMedia
+              overlay={<CardTitle title="Beer from around the world!" />}
+              overlayContentStyle={styles.overlayContentStyle}
+            >
+              <img src={WorldImg} />
+            </CardMedia>
+          </Card>
+          <br />
 
           <Footer />
         </div>
