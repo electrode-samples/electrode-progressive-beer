@@ -14,12 +14,12 @@ const styles = {
   root: {
     display: "flex",
     flexWrap: "wrap",
+    minHeight: "800px",
     justifyContent: "space-around"
   },
   gridList: {
-    width: 500,
-    height: 450,
-    overflowY: "auto"
+    width: "90%",
+    minHeight: "800px"
   },
   header: {
     fontSize: "40px",
@@ -39,12 +39,37 @@ const styles = {
     paddingBottom: "20px"
   },
   overlayContentStyle: {
+    fontFamily: "'Gabriela', serif",
     textAlign: "center",
     backgroundColor: "rgba(0,0,0,0)"
   }
 };
 
 class HomeWrapper extends React.Component {
+  constructor(){
+    super();
+
+    fetch("/getBeerStyles", {
+      credentials: "same-origin",
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then((resp) => {
+      if (resp.status === 200) {
+        this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
+        let beerStyles = JSON.parse(resp.body);
+      } else {
+        this.setState({testResult: `GET FAILED with status ${resp.status}` });
+      }
+    })
+    .catch((e) => {
+      this.setState({testResult: `GET FAILED: ${e.toString()}`});
+    });
+  }
+
   render() {
     return (
       <Home data={this.props.data}/>
@@ -72,7 +97,10 @@ export class Home extends React.Component {
           </div>
 
           <div style={styles.root}>
-            <GridList cellHeight={180} style={styles.gridList}>
+            <GridList style={styles.gridList} cols={3}>
+              <BeerCard />
+              <BeerCard />
+              <BeerCard />
               <BeerCard />
             </GridList>
           </div>

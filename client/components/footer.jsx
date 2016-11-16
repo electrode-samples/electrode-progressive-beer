@@ -5,10 +5,13 @@ const styles = {
   noBullets: {
     listStyleType: "none"
   },
-  footerTitle: {
+  cardTitle: {
+    fontFamily: "'Gabriela', serif",
+    paddingLeft: "2%",
     color: "#e0e0e0"
   },
   whiteText: {
+    fontFamily: "'Gabriela', serif",
     color: "#9e9e9e"
   },
   containerStyle: {
@@ -19,7 +22,7 @@ const styles = {
 const Footer = () => (
   <div>
     <Card containerStyle={styles.containerStyle}>
-      <CardTitle subtitle={<h1 style={styles.whiteText}>More Resources</h1>} />
+      <CardTitle subtitle={<h1 style={styles.cardTitle}>More Resources</h1>} />
       <CardText>
         <ul style={styles.noBullets}>
           <li style={styles.whiteText}>All data supplied by

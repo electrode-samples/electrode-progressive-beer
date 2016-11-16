@@ -10,16 +10,21 @@ import BeerImg from "../images/beer.jpg";
 const styles = {
   overlayContentStyle: {
     textAlign: "center",
+    height: "50%",
     backgroundColor: "rgba(0,0,0,0)"
   },
   appBarStyle: {
+    fontFamily: "'Gabriela', serif",
     backgroundColor: "rgba(0,0,0,0)"
   },
   BeerImgCard: {
+    fontFamily: "'Gabriela', serif",
     position: "absolute",
-    top: "0"
+    top: "0",
+    width: "99%"
   }
 };
+
 
 const Header = () => (
   <div>

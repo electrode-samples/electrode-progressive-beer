@@ -28,6 +28,7 @@ const styles = {
     paddingBottom: "30px"
   },
   overlayContentStyle: {
+    fontFamily: "'Gabriela', serif",
     textAlign: "center",
     backgroundColor: "rgba(0,0,0,0)"
   },

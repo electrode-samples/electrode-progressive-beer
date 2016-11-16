@@ -4,10 +4,16 @@ import FlatButton from "material-ui/FlatButton";
 import Divider from "material-ui/Divider";
 import Beer from "../images/beer-icon-240.png";
 
+const styles = {
+  card: {
+    width: "250px"
+  }
+}
+
 export class BeerCard extends React.Component {
   render() {
     return (
-      <Card>
+      <Card style={styles.card}>
         <CardMedia>
           <img src={Beer} />
         </CardMedia>
