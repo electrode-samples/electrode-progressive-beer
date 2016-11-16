@@ -1,3 +1,17 @@
 language: node_js
+
 node_js:
   - v6
+
+brances:
+  only:
+    - master
+    - pwa
+
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'electrode-progressive-beer' ]; then cd .. && eval "mv $currentfolder electrode-progressive-beer" && cd electrode-progressive-beer; fi
+  - npm install -g gulp
+
+script:
+  - gulp check
