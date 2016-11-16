@@ -22,7 +22,7 @@
     "build": "gulp build",
     "coverage": "gulp check",
     "dev": "gulp dev",
-    "server": "gulp server",
+    "start": "gulp server",
     "test": "gulp check"
   },
   "dependencies": {

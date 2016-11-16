@@ -9,7 +9,7 @@ export class BeerCard extends React.Component {
     return (
       <Card>
         <CardMedia>
-          <img src={`/js/${beerIconImgSrc}`} />
+          <img src={`/js/${beerIconImage}`} />
         </CardMedia>
         <CardText>
           Some data about beer
