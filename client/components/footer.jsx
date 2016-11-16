@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardTitle, CardText} from "material-ui/card";
+import {Card, CardTitle, CardText} from "material-ui/Card";
 
 const styles = {
   noBullets: {
@@ -29,7 +29,7 @@ const Footer = () => (
             <a style={styles.whiteText} href="http://www.brewerydb.com/">BreweryDB</a>
           </li>
           <li style={styles.whiteText}><a style={styles.whiteText} href="/">Home</a></li>
-          <li style={styles.whiteText}><a style={styles.whiteText} href="/about.html">About</a></li>
+          <li style={styles.whiteText}><a style={styles.whiteText} href="/about">About</a></li>
         </ul>
       </CardText>
     </Card>

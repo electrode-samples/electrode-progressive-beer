@@ -19,21 +19,24 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "test": "gulp check",
-    "coverage": "gulp check"
+    "build": "gulp build",
+    "coverage": "gulp check",
+    "dev": "gulp dev",
+    "start": "gulp server",
+    "test": "gulp check"
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
     "bluebird": "^3.4.6",
     "electrode-archetype-react-app": "https://github.com/Aweary/electrode-archetype-react-app.git#pwa",
     "electrode-csrf-jwt": "^1.0.0",
-    "electrode-react-ssr-caching": "^0.1.3",
+    "electrode-react-ssr-caching": "^0.1.5",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
     "lodash": "^4.10.1",
     "material-ui": "^0.16.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^2.0.0"
   },
   "devDependencies": {
     "electrode-archetype-react-app-dev": "^1.0.0",
