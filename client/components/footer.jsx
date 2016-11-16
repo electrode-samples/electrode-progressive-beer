@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardTitle, CardText} from "material-ui/card";
+import {Card, CardTitle, CardText} from "material-ui/Card";
 
 const styles = {
   noBullets: {

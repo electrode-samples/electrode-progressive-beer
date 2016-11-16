@@ -1,6 +1,6 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import {Card, CardMedia, CardTitle} from "material-ui/card";
+import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import Header from "./header";
 import Footer from "./footer";
 import beerMapImage from "../images/beer-map.png";
