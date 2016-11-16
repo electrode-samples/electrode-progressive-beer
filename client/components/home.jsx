@@ -7,6 +7,7 @@ import SearchIcon from "material-ui/svg-icons/action/search";
 import Header from "./header";
 import BeerCard from "./beercard";
 import Footer from "./footer";
+import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 
 const styles = {
   root: {
@@ -61,17 +62,20 @@ export class Home extends React.Component {
           <h1 style={styles.header}> Explore </h1>
           <p style={styles.subText}> There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information. </p>
 
-          <div style={styles.search}>
-            <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
-          </div>
+          <AboveTheFoldOnlyServerRender skip={true}>
+            <div>
+              <div style={styles.search}>
+                <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
+              </div>
+              <div style={styles.root}>
+                <GridList cellHeight={180} style={styles.gridList}>
+                  <BeerCard />
+                </GridList>
+              </div>
 
-          <div style={styles.root}>
-            <GridList cellHeight={180} style={styles.gridList}>
-              <BeerCard />
-            </GridList>
-          </div>
-
-          <Footer />
+              <Footer />
+            </div>
+          </AboveTheFoldOnlyServerRender>
         </div>
       </MuiThemeProvider>
     );

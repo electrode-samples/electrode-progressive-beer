@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, CardMedia, CardTitle, CardText} from "material-ui/card";
-import WorldImg from "../images/beer-map.png";
+import beerMapImage from "../images/beer-map.png";
 
 const overlayContentStyle = {
   textAlign: "center",
@@ -14,7 +14,7 @@ const Footer = () => (
         overlay={<CardTitle title="Beer from around the world!" />}
         overlayContentStyle={overlayContentStyle}
       >
-        <img src={WorldImg} />
+        <img src={`/js/${beerMapImage}`} />
       </CardMedia>
     </Card>
 
@@ -26,7 +26,7 @@ const Footer = () => (
         <ul>
           <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
           <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </CardText>
     </Card>

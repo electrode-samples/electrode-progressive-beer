@@ -5,7 +5,7 @@ import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-import BeerImg from "../images/beer.jpg";
+import beerImage from "../images/beer.jpg";
 
 const styles = {
   overlayContentStyle: {
@@ -34,8 +34,8 @@ const Header = () => (
         targetOrigin={{horizontal: "right", vertical: "top"}}
         anchorOrigin={{horizontal: "right", vertical: "top"}}
       >
-        <MenuItem primaryText="Home" href="/index.html"/>
-        <MenuItem primaryText="About" href="/about.html" />
+        <MenuItem primaryText="Home" href="/" />
+        <MenuItem primaryText="About" href="/about" />
       </IconMenu>
     }
     />
@@ -48,7 +48,7 @@ const Header = () => (
         }
         overlayContentStyle={styles.overlayContentStyle}
       >
-        <img src={BeerImg} />
+        <img src={`/js/${beerImage}`} />
       </CardMedia>
     </Card>
   </div>
