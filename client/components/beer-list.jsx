@@ -27,7 +27,7 @@ export class BeerList extends React.Component {
   }
 
   renderBeerCards(start, end) {
-    return this.props.beers.slice(0, NUM_ABOVE_THE_FOLD).map((beer, i) => <BeerCard key={i} />);
+    return this.props.beers.slice(start, end).map((beer, i) => <BeerCard key={i} />);
   }
 }
 
