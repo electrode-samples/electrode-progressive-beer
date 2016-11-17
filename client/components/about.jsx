@@ -56,7 +56,7 @@ const About = () => (
           overlay={<CardTitle title="Beer from around the world!" />}
           overlayContentStyle={styles.overlayContentStyle}
         >
-          <img src={`/js/${beerMapImage}`} />
+          <img src={beerMapImage} alt="Beer Map" />
         </CardMedia>
       </Card>
 

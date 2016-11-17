@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {{META_TAGS}}
     <title>{{PAGE_TITLE}}</title>
     {{PREFETCH_BUNDLES}}
-    {{WEBAPP_BUNDLES}}
+    {{WEBAPP_HEADER_BUNDLES}}
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="js-content">{{SSR_CONTENT}}</div>
+{{WEBAPP_BODY_BUNDLES}}
 {{REGISTER_SW}}
 <script>if (window.webappStart) webappStart();</script>
 <script>
