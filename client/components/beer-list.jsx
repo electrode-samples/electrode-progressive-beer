@@ -6,7 +6,7 @@ import BeerCard from "./beer-card";
 const NUM_ABOVE_THE_FOLD = 6;
 const styles = {
   gridList: {
-    minHeight: "800px",
+    minHeight: "400px",
     width: "90%"
   }
 };
@@ -14,20 +14,24 @@ const styles = {
 export class BeerList extends React.Component {
   render() {
     return (
-      <GridList style={styles.gridList} cols={3}>
+      <div>
         {this.renderBeerCards(0, NUM_ABOVE_THE_FOLD)}
 
-        <AboveTheFoldOnlyServerRender skip={true}>
-          <div>
-            {this.renderBeerCards(NUM_ABOVE_THE_FOLD)}
-          </div>
+        <AboveTheFoldOnlyServerRender>
+          {this.renderBeerCards(NUM_ABOVE_THE_FOLD)}
         </AboveTheFoldOnlyServerRender>
-      </GridList>
+      </div>
     );
   }
 
   renderBeerCards(start, end) {
-    return this.props.beers.slice(start, end).map((beer, i) => <BeerCard key={i} />);
+    const beerCards = this.props.beers.slice(start, end).map((beer, i) => <BeerCard key={i} />);
+
+    return (
+      <GridList style={styles.gridList} cols={3}>
+        {beerCards}
+      </GridList>
+    );
   }
 }
 
