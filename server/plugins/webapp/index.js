@@ -49,12 +49,12 @@ function getIconStats(iconStatsPath) {
   }
   /* Include the path prefix so the icons resolve */
   if (iconStats && iconStats.html) {
-    const prefix = iconStats.outputFilePrefix;
     iconStats = iconStats.html.join("");
   }
   return iconStats;
 }
 
+/* eslint max-statements: [2, 16] */
 function makeRouteHandler(options, userContent) {
   const CONTENT_MARKER = "{{SSR_CONTENT}}";
   const HEADER_BUNDLE_MARKER = "{{WEBAPP_HEADER_BUNDLES}}";
