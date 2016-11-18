@@ -1,17 +1,30 @@
 language: node_js
 
+sudo: true
+
 node_js:
   - v7
 
-brances:
+branches:
   only:
     - master
     - pwa
 
 before_install:
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+  - sh -e /etc/init.d/xvfb start
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'electrode-progressive-beer' ]; then cd .. && eval "mv $currentfolder electrode-progressive-beer" && cd electrode-progressive-beer; fi
-  - npm install -g gulp
+  - npm install -g gulp lighthouse
 
 script:
-  - gulp check
+  - gulp check && npm run build && npm run pwa-perf
+
+language: node_js
+
+node_js:
+  - v7
