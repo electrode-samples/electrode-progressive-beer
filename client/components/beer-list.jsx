@@ -24,7 +24,8 @@ export class BeerList extends React.Component {
   }
 
   renderBeerCards(start, end) {
-    const beerCards = this.props.beers.slice(start, end).map((beer, i) => <BeerCard key={i} beer={beer} />);
+    const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
+      <BeerCard key={i} beer={beer} />);
 
     return (
       <GridList cellHeight={300} style={styles.gridList} cols={3}>

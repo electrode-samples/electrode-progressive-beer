@@ -10,11 +10,42 @@ import BeerList from "./beer-list";
 import Footer from "./footer";
 import beerMapImage from "../images/beer-map.png";
 
+const styles = {
+  root: {
+    minHeight: "800px",
+    textAlign: "-webkit-center"
+  },
+  header: {
+    fontSize: "40px",
+    paddingTop: "40%",
+    paddingBottom: "50px",
+    textAlign: "center"
+  },
+  subText: {
+    margin: "0 auto",
+    fontSize: "20px",
+    width: "90%",
+    textAlign: "justify",
+    lineHeight: "40px"
+  },
+  search: {
+    textAlign: "center",
+    paddingBottom: "20px"
+  },
+  overlayContentStyle: {
+    fontFamily: "'Gabriela', serif",
+    textAlign: "center",
+    height: "50%",
+    backgroundColor: "rgba(0,0,0,0)"
+  }
+};
+
 class HomeWrapper extends React.Component {
   constructor() {
     super();
   }
 
+  /* eslint react/no-did-mount-set-state: 0 */
   componentDidMount() {
     fetch("/getBeerStyles", {
       credentials: "same-origin",
@@ -25,9 +56,9 @@ class HomeWrapper extends React.Component {
       }
     })
     .then((resp) => {
-      const {store} = this.context;
-      const state = store.getState();
-      console.log(state);
+      // const {store} = this.context;
+      // const state = store.getState();
+
       if (resp.status === 200) {
         this.setState({beerStyles: resp});
       } else {
@@ -101,34 +132,3 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps
 )(HomeWrapper);
-
-const styles = {
-  root: {
-    minHeight: "800px",
-    textAlign: "center",
-    textAlign: "-webkit-center"
-  },
-  header: {
-    fontSize: "40px",
-    paddingTop: "40%",
-    paddingBottom: "50px",
-    textAlign: "center"
-  },
-  subText: {
-    margin: "0 auto",
-    fontSize: "20px",
-    width: "90%",
-    textAlign: "justify",
-    lineHeight: "40px"
-  },
-  search: {
-    textAlign: "center",
-    paddingBottom: "20px"
-  },
-  overlayContentStyle: {
-    fontFamily: "'Gabriela', serif",
-    textAlign: "center",
-    height: "50%",
-    backgroundColor: "rgba(0,0,0,0)"
-  }
-};

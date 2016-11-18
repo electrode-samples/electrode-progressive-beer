@@ -1,8 +1,6 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import {GridList} from "material-ui/GridList";
 import Header from "./header";
-import BeerCard from "./beer-card";
 import Footer from "./footer";
 
 const styles = {
@@ -10,11 +8,6 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around"
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-    overflowY: "auto"
   },
   header: {
     fontSize: "40px",

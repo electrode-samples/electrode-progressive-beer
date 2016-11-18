@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import {Card, CardActions, CardMedia, CardText} from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import Divider from "material-ui/Divider";
@@ -13,6 +13,7 @@ const styles = {
   }
 };
 
+/*eslint brace-style: 0*/
 export class BeerCard extends React.Component {
   render() {
     let beerImage = lightBeerImage;
@@ -42,5 +43,14 @@ export class BeerCard extends React.Component {
     );
   }
 }
+
+
+BeerCard.propTypes = {
+  beer: PropTypes.object
+};
+
+BeerCard.defaultProps = {
+  beer: {}
+};
 
 export default BeerCard;

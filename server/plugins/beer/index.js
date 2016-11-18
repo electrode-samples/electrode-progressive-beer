@@ -1,6 +1,5 @@
 "use strict";
 
-const fs = require("fs");
 import beerStyles from "./data/styles.json";
 
 exports.register = (server, options, next) => {
