@@ -24,7 +24,7 @@
     "dev": "gulp dev",
     "start": "gulp server",
     "test": "gulp check",
-    "pwa-perf": "gulp server & lighthouse http://localhost:3000"
+    "pwa-perf": "lighthouse http://localhost:3000"
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
