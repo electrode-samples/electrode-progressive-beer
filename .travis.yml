@@ -21,5 +21,8 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - wget 'https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots' -O chrome.zip && unzip -o chrome.zip
 
+before_script:
+  (npm run build && NODE_ENV=production npm run start) &
+
 script:
-  - npm run test && npm run build && (NODE_ENV=production npm run start & npm run pwa-perf)
+  - npm run test && (lighthouse http://localhost:8000)
