@@ -1,26 +1,24 @@
 import ReduxRouterEngine from 'electrode-redux-router-engine';
 import React from 'react';
-
-import { routes } from "../../client/routes";
+import {routes} from "../../client/routes";
 const Promise = require("bluebird");
-import { createStore } from "redux";
+import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
+import beerStyles from "../plugins/beer/data/styles.json";
+
+const INIT_BEER_CARDS = 6;
 
 function storeInitializer(req) {
-    let initialState;
-    if(req.path === "/") {
-      initialState = {
-        data: "This data is obtained from Redux store"
-      };
-    } else if (req.path === "/above-the-fold") {
-      initialState = {
-        skip: req.query.skip === "true"
-      }
-    } else {
-      initialState = {};
-    }
+  let initialState;
+  if(req.path === "/") {
+    initialState = {
+      data: beerStyles.data.slice(0, INIT_BEER_CARDS)
+    };
+  } else {
+    initialState = {};
+  }
 
-    return createStore(rootReducer, initialState);
+  return createStore(rootReducer, initialState);
 }
 
 function createReduxStore(req, match) {
@@ -29,19 +27,17 @@ function createReduxStore(req, match) {
       // DO ASYNC THUNK ACTIONS HERE : store.dispatch(boostrapApp())
       Promise.resolve({})
     ]).then(() => {
+
       return store;
   });
 }
 
-//
 // This function is exported as the content for the webapp plugin.
 //
 // See config/default.json under plugins.webapp on specifying the content.
 //
 // When the Web server hits the routes handler installed by the webapp plugin, it
 // will call this function to retrieve the content for SSR if it's enabled.
-//
-//
 
 module.exports = (req) => {
   const app = req.server && req.server.app || req.app;

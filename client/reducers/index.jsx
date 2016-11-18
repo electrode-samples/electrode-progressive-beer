@@ -1,5 +1,5 @@
-const rootReducer = (state) => {
-  return state || {};
+const rootReducer = (state = {}) => {
+  return state;
 };
 
 export default rootReducer;

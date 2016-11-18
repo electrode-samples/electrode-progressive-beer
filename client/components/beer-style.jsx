@@ -50,9 +50,6 @@ export class BeerStyle extends React.Component {
 
           <h1 style={styles.availableHeader}> Available Beers </h1>
           <div style={styles.root}>
-            <GridList cellHeight={180} style={styles.gridList}>
-              <BeerCard />
-            </GridList>
           </div>
 
           <Footer />

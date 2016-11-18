@@ -1,16 +1,11 @@
 "use strict";
 
 const fs = require("fs");
+import beerStyles from "./data/styles.json";
 
 exports.register = (server, options, next) => {
   const getBeerStyles = (reply) => {
-    fs.readFile(`${__dirname}/data/styles.json`, "utf8", (err, beerStyles) => {
-      if (err) {
-        throw err;
-      }
-
-      reply(null, JSON.parse(beerStyles));
-    });
+    reply(null, beerStyles);
   };
 
   server.route({
