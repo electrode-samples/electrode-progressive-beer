@@ -20,6 +20,8 @@ before_install:
   - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
   - sh -e /etc/init.d/xvfb start
   - wget 'https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots' -O chrome.zip && unzip -o chrome.zip
+
+before_script:
   - gulp server
 
 script:
