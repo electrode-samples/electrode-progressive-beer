@@ -7,12 +7,11 @@ sudo: required
 
 dist: trusty
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+cache:
+   directories:
+     - node_modules
+     - chrome-linux
+     - lighthouse-extension/node_modules
 
 branches:
   only:
@@ -23,9 +22,10 @@ before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'electrode-progressive-beer' ]; then cd .. && eval "mv $currentfolder electrode-progressive-beer" && cd electrode-progressive-beer; fi
   - npm install -g gulp lighthouse
-  - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
   - export DISPLAY=:99.0
+  - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
   - sh -e /etc/init.d/xvfb start
+  - wget 'https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots' -O chrome.zip && unzip chrome.zip
 
 script:
   - gulp check && npm run build && npm run pwa-perf
