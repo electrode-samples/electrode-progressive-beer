@@ -7,11 +7,6 @@ sudo: required
 
 dist: trusty
 
-cache:
-   directories:
-     - node_modules
-     - chrome-linux
-
 branches:
   only:
     - master
