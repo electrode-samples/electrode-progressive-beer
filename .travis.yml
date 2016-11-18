@@ -22,7 +22,7 @@ before_install:
   - wget 'https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots' -O chrome.zip && unzip -o chrome.zip
 
 before_script:
-  - gulp build && gulp server
+  - gulp build && gulp server &
 
 script:
   - gulp check && npm run pwa-perf
