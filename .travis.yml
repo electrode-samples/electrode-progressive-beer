@@ -23,8 +23,3 @@ before_install:
 
 script:
   - gulp check && npm run build && npm run pwa-perf
-
-language: node_js
-
-node_js:
-  - v7
