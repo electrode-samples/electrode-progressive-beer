@@ -53,7 +53,7 @@ const Header = () => (
         }
         overlayContentStyle={styles.overlayContentStyle}
       >
-        <img src={`/js/${beerImage}`} />
+        <img src={beerImage} alt="beer background" />
       </CardMedia>
     </Card>
   </div>

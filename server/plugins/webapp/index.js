@@ -49,17 +49,16 @@ function getIconStats(iconStatsPath) {
   }
   /* Include the path prefix so the icons resolve */
   if (iconStats && iconStats.html) {
-    const prefix = iconStats.outputFilePrefix;
-    iconStats = iconStats.html
-      .map((asset) => asset.replace(prefix, `/js/${prefix}`))
-      .join("");
+    iconStats = iconStats.html.join("");
   }
   return iconStats;
 }
 
+/* eslint max-statements: [2, 16] */
 function makeRouteHandler(options, userContent) {
   const CONTENT_MARKER = "{{SSR_CONTENT}}";
-  const BUNDLE_MARKER = "{{WEBAPP_BUNDLES}}";
+  const HEADER_BUNDLE_MARKER = "{{WEBAPP_HEADER_BUNDLES}}";
+  const BODY_BUNDLE_MARKER = "{{WEBAPP_BODY_BUNDLES}}";
   const TITLE_MARKER = "{{PAGE_TITLE}}";
   const PREFETCH_MARKER = "{{PREFETCH_BUNDLES}}";
   const REGISTER_SW_MARKER = "{{REGISTER_SW}}";
@@ -109,16 +108,20 @@ function makeRouteHandler(options, userContent) {
       });
     };
 
-    const makeBundles = () => {
+    const makeHeaderBundles = () => {
       const manifest = bundleManifest();
       const manifestLink = manifest
         ? `<link rel="manifest" href="${manifest}" />`
         : "";
       const css = bundleCss();
       const cssLink = css ? `<link rel="stylesheet" href="${css}" />` : "";
+      return `${manifestLink}${cssLink}`;
+    };
+
+    const makeBodyBundles = () => {
       const js = bundleJs();
       const jsLink = js ? `<script src="${js}"></script>` : "";
-      return `${manifestLink}${cssLink}${jsLink}`;
+      return jsLink;
     };
 
     const registerServiceWorker = () => {
@@ -137,8 +140,10 @@ function makeRouteHandler(options, userContent) {
           return content.html || "";
         case TITLE_MARKER:
           return options.pageTitle;
-        case BUNDLE_MARKER:
-          return makeBundles();
+        case HEADER_BUNDLE_MARKER:
+          return makeHeaderBundles();
+        case BODY_BUNDLE_MARKER:
+          return makeBodyBundles();
         case PREFETCH_MARKER:
           return `<script>${content.prefetch}</script>`;
         case REGISTER_SW_MARKER:

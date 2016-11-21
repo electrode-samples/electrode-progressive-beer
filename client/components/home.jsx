@@ -54,14 +54,6 @@ HomeWrapper.propTypes = {
 
 /* eslint-disable max-len */
 export class Home extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: props.data
-    }
-  }
-
   /* eslint react/no-did-mount-set-state: 0 */
   componentDidMount() {
     fetch(`/getBeerStyles?init_cards=${this.props.location.query.init_cards}`, {
@@ -110,7 +102,7 @@ export class Home extends React.Component {
                   overlay={<CardTitle title="Beer from around the world!" />}
                   overlayContentStyle={styles.overlayContentStyle}
                 >
-                  <img src={`/js/${beerMapImage}`} />
+                  <img src={beerMapImage} alt="Beer Map" />
                 </CardMedia>
               </Card>
               <br />

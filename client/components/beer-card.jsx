@@ -27,7 +27,7 @@ export class BeerCard extends React.Component {
     return (
       <Card style={styles.card}>
         <CardMedia>
-          <img src={`/js/${beerImage}`} />
+          <img src={beerImage} alt="Beer Icon" />
         </CardMedia>
 
         <CardText>
