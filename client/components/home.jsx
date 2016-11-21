@@ -41,35 +41,6 @@ const styles = {
 };
 
 class HomeWrapper extends React.Component {
-  constructor() {
-    super();
-  }
-
-  /* eslint react/no-did-mount-set-state: 0 */
-  componentDidMount() {
-    fetch("/getBeerStyles", {
-      credentials: "same-origin",
-      method: "GET",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then((resp) => {
-      // const {store} = this.context;
-      // const state = store.getState();
-
-      if (resp.status === 200) {
-        this.setState({beerStyles: resp});
-      } else {
-        this.setState({beerStyles: resp});
-      }
-    })
-    .catch((e) => {
-      this.setState({beerStyles: `GET FAILED: ${e.toString()}`});
-    });
-  }
-
   render() {
     return (
       <Home {...this.props}/>
@@ -83,6 +54,38 @@ HomeWrapper.propTypes = {
 
 /* eslint-disable max-len */
 export class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: props.data
+    }
+  }
+
+  /* eslint react/no-did-mount-set-state: 0 */
+  componentDidMount() {
+    fetch(`/getBeerStyles?init_cards=${this.props.location.query.init_cards}`, {
+      credentials: "same-origin",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((resp) => {
+      const {store} = this.context;
+
+      resp.json().then(beerData => {
+        store.dispatch({
+          type: "ADD_BEER_STYLES",
+          data: beerData.data
+        });
+      });
+    })
+    .catch((e) => {
+      this.setState({beerStyles: `GET FAILED: ${e.toString()}`});
+    });
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -119,6 +122,10 @@ export class Home extends React.Component {
       </MuiThemeProvider>
     );
   }
+}
+
+Home.contextTypes = {
+  store: React.PropTypes.object
 }
 
 Home.propTypes = {

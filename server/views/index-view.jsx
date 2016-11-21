@@ -6,13 +6,15 @@ import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
 import beerStyles from "../plugins/beer/data/styles.json";
 
-const INIT_BEER_CARDS = 6;
+const DEFAULT_BEER_CARDS = 6;
 
 function storeInitializer(req) {
   let initialState;
   if(req.path === "/") {
+    let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
+
     initialState = {
-      data: beerStyles.data.slice(0, INIT_BEER_CARDS)
+      data: beerStyles.data.slice(0, firstRender)
     };
   } else {
     initialState = {};
@@ -27,7 +29,6 @@ function createReduxStore(req, match) {
       // DO ASYNC THUNK ACTIONS HERE : store.dispatch(boostrapApp())
       Promise.resolve({})
     ]).then(() => {
-
       return store;
   });
 }
