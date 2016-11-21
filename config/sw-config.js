@@ -21,6 +21,8 @@ module.exports = {
   manifest: {
     background: "#FFFFFF",
     logo: "./images/beer-icon-240.png",
-    title: "Electrode Progressive Beer"
+    title: "Electrode Progressive Beer",
+    short_name: "EPB",
+    theme_color: "#FFFFFF"
   }
 };
