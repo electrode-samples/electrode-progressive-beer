@@ -43,28 +43,28 @@ const styles = {
 };
 
 class HomeWrapper extends React.Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    fetch("/getBeerStyles", {
-      credentials: "same-origin",
-      method: "GET",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then((resp) => {
-      if (resp.status === 200) {
-        this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
-      } else {
-        this.setState({testResult: `GET FAILED with status ${resp.status}` });
-      }
-    })
-    .catch((e) => {
-      this.setState({testResult: `GET FAILED: ${e.toString()}`});
-    });
-  }
+  //   fetch("/getBeerStyles", {
+  //     credentials: "same-origin",
+  //     method: "GET",
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //   .then((resp) => {
+  //     if (resp.status === 200) {
+  //       this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
+  //     } else {
+  //       this.setState({testResult: `GET FAILED with status ${resp.status}` });
+  //     }
+  //   })
+  //   .catch((e) => {
+  //     this.setState({testResult: `GET FAILED: ${e.toString()}`});
+  //   });
+  // }
 
   render() {
     return (
@@ -103,7 +103,7 @@ export class Home extends React.Component {
                   overlay={<CardTitle title="Beer from around the world!" />}
                   overlayContentStyle={styles.overlayContentStyle}
                 >
-                  <img src={`/js/${beerMapImage}`} />
+                  <img src={beerMapImage} alt="Beer Map" />
                 </CardMedia>
               </Card>
               <br />
