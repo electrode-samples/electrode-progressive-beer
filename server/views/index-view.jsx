@@ -8,33 +8,13 @@ import beerStyles from "../plugins/beer/data/styles.json";
 
 const DEFAULT_BEER_CARDS = 6;
 
-function deleteCommonProps(beer) {
-  delete beer.createDate;
-  delete beer.updateDate;
-  delete beer.shortName;
-  delete beer.ibuMin;
-  delete beer.ibuMax;
-  delete beer.abvMin;
-  delete beer.abvMax;
-  delete beer.ogMin;
-  delete beer.fgMin;
-  delete beer.fgMax;
-
-  return beer;
-}
-
 function storeInitializer(req) {
   let initialState;
 
   if(req.path === "/") {
     let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
 
-    let data = beerStyles.data.slice(0, firstRender).map((value) => {
-      let beer = deleteCommonProps(value);
-      delete beer.description;
-
-      return beer;
-    });
+    let data = beerStyles.data.slice(0, firstRender);
 
     initialState = {data};
   } else if(req.path === "/beerstyle") {
@@ -43,8 +23,8 @@ function storeInitializer(req) {
 
     for (let i = 0 ; i < beerStyles.data.length; i++) {
       if (beerStyles.data[i].id === styleId){
-          data = deleteCommonProps(beerStyles.data[i]);
-          break;
+        data = beerStyles.data[i];
+        break;
       }
     }
 
