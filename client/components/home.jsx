@@ -66,7 +66,7 @@ export class Home extends React.Component {
     .then((resp) => {
       const {store} = this.context;
 
-      resp.json().then(beerData => {
+      resp.json().then((beerData) => {
         store.dispatch({
           type: "ADD_BEER_STYLES",
           data: beerData.data
@@ -118,7 +118,11 @@ export class Home extends React.Component {
 
 Home.contextTypes = {
   store: React.PropTypes.object
-}
+};
+
+Home.propTypes = {
+  location: PropTypes.object
+};
 
 Home.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object)

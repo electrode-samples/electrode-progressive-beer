@@ -6,7 +6,9 @@ const DEFAULT_BEER_CARDS = 6;
 
 exports.register = (server, options, next) => {
   const getBeerStyles = (request, reply) => {
-    let secondRender = request.url.query.prefetch_cards ? request.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
+    const secondRender = request.url.query.prefetch_cards ?
+      request.url.query.prefetch_cards :
+      DEFAULT_BEER_CARDS;
 
     reply({data: beerStyles.data.slice(secondRender)});
   };

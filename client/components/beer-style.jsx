@@ -37,7 +37,7 @@ export class BeerStyle extends React.Component {
     const {store} = this.context;
     const state = store.getState();
 
-    let beerStyleDesc = state.map((beerStyle) => {
+    const beerStyleDesc = [...state].map((beerStyle) => {
       if (beerStyle.id === beerStyleId) {
         return beerStyle.description;
       }
@@ -64,14 +64,14 @@ export class BeerStyle extends React.Component {
 
 BeerStyle.contextTypes = {
   store: React.PropTypes.object
-}
+};
 
-// BeerStyle.propTypes = {
-//   data: PropTypes.arrayOf(PropTypes.object)
-// };
-//
-// BeerStyle.defaultProps = {
-//   data: []
-// };
+BeerStyle.propTypes = {
+  location: PropTypes.object
+};
+
+BeerStyle.defaultProps = {
+  location: {}
+};
 
 export default BeerStyle;
