@@ -40,23 +40,11 @@ const styles = {
   }
 };
 
-class HomeWrapper extends React.Component {
-  render() {
-    return (
-      <Home {...this.props}/>
-    );
-  }
-}
-
-HomeWrapper.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object)
-};
-
-/* eslint-disable max-len */
+/*eslint no-class-assign: 0*/
 export class Home extends React.Component {
   /* eslint react/no-did-mount-set-state: 0 */
   componentDidMount() {
-    fetch(`/getBeerStyles?init_cards=${this.props.location.query.init_cards}`, {
+    fetch(`/getBeerStyles?init_cards=${this.props.location.query.prefetch_cards}`, {
       credentials: "same-origin",
       method: "GET",
       headers: {
@@ -64,10 +52,8 @@ export class Home extends React.Component {
       }
     })
     .then((resp) => {
-      const {store} = this.context;
-
       resp.json().then((beerData) => {
-        store.dispatch({
+        this.props.dispatch({
           type: "ADD_BEER_STYLES",
           data: beerData.data
         });
@@ -85,7 +71,11 @@ export class Home extends React.Component {
           <Header />
 
           <h1 style={styles.header}>Explore</h1>
-          <p style={styles.subText}>There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</p>
+          <p style={styles.subText}>There are so many great beers around the world.
+            Sometimes it can be hard to keep track of all the different kinds!
+            Progressive Beer is a handy web app that is designed to help you learn
+            everything there is to know about beers! Explore the many beer styles in
+            list below for more information.</p>
 
           <div style={styles.search}>
             <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
@@ -116,15 +106,24 @@ export class Home extends React.Component {
   }
 }
 
-Home.contextTypes = {
-  store: React.PropTypes.object
-};
+// Adds dispatch to props
+Home = connect()(Home);
 
 Home.propTypes = {
-  location: PropTypes.object
+  data: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
-Home.propTypes = {
+class HomeWrapper extends React.Component {
+  render() {
+    return (
+      <Home {...this.props}/>
+    );
+  }
+}
+
+HomeWrapper.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object)
 };
 

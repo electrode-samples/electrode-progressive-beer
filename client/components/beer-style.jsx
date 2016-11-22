@@ -1,4 +1,5 @@
 import React, {PropTypes} from "react";
+import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Header from "./header";
 import Footer from "./footer";
@@ -30,18 +31,9 @@ const styles = {
   }
 };
 
-/* eslint-disable max-len */
-export class BeerStyle extends React.Component {
+class BeerStyle extends React.Component {
   render() {
-    const beerStyleId = this.props.location.query.style;
-    const {store} = this.context;
-    const state = store.getState();
-
-    const beerStyleDesc = [...state].map((beerStyle) => {
-      if (beerStyle.id === beerStyleId) {
-        return beerStyle.description;
-      }
-    });
+    const beerStyleDesc = this.props.data.description;
 
     return (
       <MuiThemeProvider>
@@ -51,7 +43,7 @@ export class BeerStyle extends React.Component {
           <h1 style={styles.header}>This Beer's Style</h1>
           <p style={styles.subText}>{beerStyleDesc}</p>
 
-          {/* <h1 style={styles.availableHeader}>Available Beers</h1> */}
+          <h1 style={styles.availableHeader}></h1>
           <div style={styles.root}>
           </div>
 
@@ -62,16 +54,15 @@ export class BeerStyle extends React.Component {
   }
 }
 
-BeerStyle.contextTypes = {
-  store: React.PropTypes.object
-};
-
 BeerStyle.propTypes = {
+  data: PropTypes.object,
   location: PropTypes.object
 };
 
-BeerStyle.defaultProps = {
-  location: {}
-};
+const mapStateToProps = (state) => ({
+  data: state.data
+});
 
-export default BeerStyle;
+export default connect(
+  mapStateToProps
+)(BeerStyle);

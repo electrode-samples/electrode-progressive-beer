@@ -17,8 +17,10 @@ const enhancer = compose(
 
 window.webappStart = () => {
   injectTapEventPlugin();
+
   const initialState = window.__PRELOADED_STATE__;
   const store = createStore(rootReducer, initialState, enhancer);
+
   render(
       <Provider store={store}>
         <div>

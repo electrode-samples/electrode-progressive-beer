@@ -37,7 +37,7 @@ export class BeerCard extends React.Component {
         <Divider />
 
         <CardActions>
-          <FlatButton label="LEARN MORE" href={`/beer-style?style=${this.props.beer.id}`}/>
+          <FlatButton label="LEARN MORE" href={`/beerstyle?style=${this.props.beer.id}`}/>
         </CardActions>
       </Card>
     );
