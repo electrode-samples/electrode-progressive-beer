@@ -10,7 +10,7 @@ export const routes = (
   <Route path="/">
     <IndexRoute component={Home}/>
     <Route path="about" component={About}/>
-    <Route path="beer-style" component={BeerStyle}/>
-    <Route path="beer-details" component={BeerDetails}/>
+    <Route path="beerstyle" component={BeerStyle}/>
+    <Route path="beerdetails" component={BeerDetails}/>
   </Route>
 );

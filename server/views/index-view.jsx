@@ -1,26 +1,59 @@
 import ReduxRouterEngine from 'electrode-redux-router-engine';
 import React from 'react';
-
-import { routes } from "../../client/routes";
+import {routes} from "../../client/routes";
 const Promise = require("bluebird");
-import { createStore } from "redux";
+import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
+import beerStyles from "../plugins/beer/data/styles.json";
+
+const DEFAULT_BEER_CARDS = 6;
+
+function deleteCommonProps(beer) {
+  delete beer.createDate;
+  delete beer.updateDate;
+  delete beer.shortName;
+  delete beer.ibuMin;
+  delete beer.ibuMax;
+  delete beer.abvMin;
+  delete beer.abvMax;
+  delete beer.ogMin;
+  delete beer.fgMin;
+  delete beer.fgMax;
+
+  return beer;
+}
 
 function storeInitializer(req) {
-    let initialState;
-    if(req.path === "/") {
-      initialState = {
-        data: "This data is obtained from Redux store"
-      };
-    } else if (req.path === "/above-the-fold") {
-      initialState = {
-        skip: req.query.skip === "true"
+  let initialState;
+
+  if(req.path === "/") {
+    let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
+
+    let data = beerStyles.data.slice(0, firstRender).map((value) => {
+      let beer = deleteCommonProps(value);
+      delete beer.description;
+
+      return beer;
+    });
+
+    initialState = {data};
+  } else if(req.path === "/beerstyle") {
+    let styleId = Number(req.url.query.style);
+    let data = null;
+
+    for (let i = 0 ; i < beerStyles.data.length; i++) {
+      if (beerStyles.data[i].id === styleId){
+          data = deleteCommonProps(beerStyles.data[i]);
+          break;
       }
-    } else {
-      initialState = {};
     }
 
-    return createStore(rootReducer, initialState);
+    initialState = {data};
+  } else {
+    initialState = {};
+  }
+
+  return createStore(rootReducer, initialState);
 }
 
 function createReduxStore(req, match) {
@@ -33,15 +66,12 @@ function createReduxStore(req, match) {
   });
 }
 
-//
 // This function is exported as the content for the webapp plugin.
 //
 // See config/default.json under plugins.webapp on specifying the content.
 //
 // When the Web server hits the routes handler installed by the webapp plugin, it
 // will call this function to retrieve the content for SSR if it's enabled.
-//
-//
 
 module.exports = (req) => {
   const app = req.server && req.server.app || req.app;

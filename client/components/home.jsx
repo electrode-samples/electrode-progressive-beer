@@ -12,10 +12,8 @@ import beerMapImage from "../images/beer-map.png";
 
 const styles = {
   root: {
-    display: "flex",
-    flexWrap: "wrap",
     minHeight: "800px",
-    justifyContent: "space-around"
+    textAlign: "-webkit-center"
   },
   header: {
     fontSize: "40px",
@@ -42,43 +40,30 @@ const styles = {
   }
 };
 
-class HomeWrapper extends React.Component {
-  // constructor() {
-  //   super();
-
-  //   fetch("/getBeerStyles", {
-  //     credentials: "same-origin",
-  //     method: "GET",
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   .then((resp) => {
-  //     if (resp.status === 200) {
-  //       this.setState({testResult: `GET SUCCEEDED with status ${resp.status}` });
-  //     } else {
-  //       this.setState({testResult: `GET FAILED with status ${resp.status}` });
-  //     }
-  //   })
-  //   .catch((e) => {
-  //     this.setState({testResult: `GET FAILED: ${e.toString()}`});
-  //   });
-  // }
-
-  render() {
-    return (
-      <Home data={this.props.data}/>
-    );
-  }
-}
-
-HomeWrapper.propTypes = {
-  data: PropTypes.string
-};
-
-/* eslint-disable max-len */
+/*eslint no-class-assign: 0*/
 export class Home extends React.Component {
+  /* eslint react/no-did-mount-set-state: 0 */
+  componentDidMount() {
+    fetch(`/getBeerStyles?init_cards=${this.props.location.query.prefetch_cards}`, {
+      credentials: "same-origin",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((resp) => {
+      resp.json().then((beerData) => {
+        this.props.dispatch({
+          type: "ADD_BEER_STYLES",
+          data: beerData.data
+        });
+      });
+    })
+    .catch((e) => {
+      this.setState({beerStyles: `GET FAILED: ${e.toString()}`});
+    });
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -86,14 +71,18 @@ export class Home extends React.Component {
           <Header />
 
           <h1 style={styles.header}>Explore</h1>
-          <p style={styles.subText}>There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</p>
+          <p style={styles.subText}>There are so many great beers around the world.
+            Sometimes it can be hard to keep track of all the different kinds!
+            Progressive Beer is a handy web app that is designed to help you learn
+            everything there is to know about beers! Explore the many beer styles in
+            list below for more information.</p>
 
           <div style={styles.search}>
             <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
           </div>
 
           <div style={styles.root}>
-            <BeerList />
+            <BeerList beers={this.props.data}/>
           </div>
 
           <AboveTheFoldOnlyServerRender skip={true}>
@@ -117,8 +106,25 @@ export class Home extends React.Component {
   }
 }
 
+// Adds dispatch to props
+Home = connect()(Home);
+
 Home.propTypes = {
-  data: PropTypes.string
+  data: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object,
+  dispatch: PropTypes.func
+};
+
+class HomeWrapper extends React.Component {
+  render() {
+    return (
+      <Home {...this.props}/>
+    );
+  }
+}
+
+HomeWrapper.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object)
 };
 
 const mapStateToProps = (state) => ({

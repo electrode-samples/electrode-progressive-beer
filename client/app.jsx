@@ -1,13 +1,12 @@
 import React from "react";
 import {render} from "react-dom";
-import { routes } from "./routes";
-import { Router, browserHistory } from "react-router";
-import { createStore, compose } from "redux";
-import { Provider } from "react-redux";
+import {routes} from "./routes";
+import {Router, browserHistory} from "react-router";
+import {createStore, compose} from "redux";
+import {Provider} from "react-redux";
 import rootReducer from "./reducers";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import DevTools from "../client/devtools";
-
 import "./styles/base.css";
 
 const enhancer = compose(
@@ -18,8 +17,10 @@ const enhancer = compose(
 
 window.webappStart = () => {
   injectTapEventPlugin();
+
   const initialState = window.__PRELOADED_STATE__;
   const store = createStore(rootReducer, initialState, enhancer);
+
   render(
       <Provider store={store}>
         <div>

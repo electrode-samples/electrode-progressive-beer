@@ -73,7 +73,12 @@ function makeRouteHandler(options, userContent) {
   const iconStats = getIconStats(options.iconStats);
 
   /* Create a route handler */
+  /*eslint max-statements: 0*/
   return (request, reply) => {
+    if (global.navigator) {
+      global.navigator.userAgent = request.headers["user-agent"] || "all";
+    }
+
     const mode = request.query.__mode || "";
     const renderJs = RENDER_JS && mode !== "nojs";
     const renderSs = RENDER_SS && mode !== "noss";

@@ -1,22 +1,22 @@
 "use strict";
 
-const fs = require("fs");
+import beerStyles from "./data/styles.json";
+
+const DEFAULT_BEER_CARDS = 6;
 
 exports.register = (server, options, next) => {
-  const getBeerStyles = (reply) => {
-    fs.readFile(`${__dirname}/data/styles.json`, "utf8", (err, beerStyles) => {
-      if (err) {
-        throw err;
-      }
+  const getBeerStyles = (request, reply) => {
+    const secondRender = request.url.query.prefetch_cards ?
+      request.url.query.prefetch_cards :
+      DEFAULT_BEER_CARDS;
 
-      reply(null, JSON.parse(beerStyles));
-    });
+    reply({data: beerStyles.data.slice(secondRender)});
   };
 
   server.route({
     method: "GET",
     path: "/getBeerStyles",
-    handler: (request, reply) => getBeerStyles(reply)
+    handler: (request, reply) => getBeerStyles(request, reply)
   });
 
   next();
