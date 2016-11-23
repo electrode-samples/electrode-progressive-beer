@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import IconMenu from "material-ui/IconMenu";
@@ -33,7 +33,7 @@ export class Header extends React.Component {
     let beerImage = homeImage;
     if (this.props.image === "about") {
       beerImage = aboutImage;
-    } else if (this.props.image === "beerstyle"){
+    } else if (this.props.image === "beerstyle") {
       beerImage = beerStyleImage;
     }
 
@@ -61,7 +61,8 @@ export class Header extends React.Component {
           <CardMedia
             overlay={
               <CardTitle
-                title="Progressive Beer" subtitle="The Ultimate Guide to Beer all around the World" />
+                title="Progressive Beer"
+                subtitle="The Ultimate Guide to Beer all around the World" />
             }
             overlayContentStyle={styles.overlayContentStyle}
           >
@@ -72,5 +73,13 @@ export class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  image: PropTypes.string
+};
+
+Header.defaultProps = {
+  image: "home"
+};
 
 export default Header;
