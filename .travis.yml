@@ -1,0 +1,31 @@
+language: node_js
+
+node_js:
+  - v7
+
+sudo: required
+
+dist: trusty
+
+branches:
+  only:
+    - master
+    - pwa
+
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'electrode-progressive-beer' ]; then cd .. && eval "mv $currentfolder electrode-progressive-beer" && cd electrode-progressive-beer; fi
+  - npm install -g gulp lighthouse
+  - export DISPLAY=:99.0
+  - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
+  - sh -e /etc/init.d/xvfb start
+  - wget 'https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots' -O chrome.zip && unzip -o chrome.zip
+
+before_script:
+  - npm run build
+  - npm run start &
+  - sleep 10
+
+script:
+  - npm run test
+  - lighthouse http://localhost:3000

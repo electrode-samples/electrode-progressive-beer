@@ -1,0 +1,27 @@
+{
+  "plugins": {
+    "electrode-csrf-jwt": {
+      "options": {
+        "secret": "shhhhhh",
+        "expiresIn": 60
+      }
+    },
+    "./server/plugins/csrf": {},
+    "webapp": {
+      "module": "./server/plugins/webapp",
+      "options": {
+        "pageTitle": "Electrode Progressive Beer",
+        "paths": {
+          "/{args*}": {
+            "content": {
+              "module": "./server/views/index-view"
+            }
+          }
+        }
+      }
+    },
+    "beer": {
+      "module": "./server/plugins/beer"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "electrode-app-with-electrode-modules",
+  "version": "0.0.0",
+  "description": "electrode app with electrode modules",
+  "homepage": "https://github.com/electrode-io",
+  "contributors": [],
+  "files": [
+    "lib"
+  ],
+  "main": "server/index.js",
+  "keywords": [
+    "electrode",
+    "app",
+    "confippet"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electrode-io/electrode-app-with-electrode-modules.git"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "gulp build",
+    "coverage": "gulp check",
+    "dev": "gulp dev",
+    "start": "gulp server",
+    "test": "gulp check"
+  },
+  "dependencies": {
+    "above-the-fold-only-server-render": "^1.0.2",
+    "bluebird": "^3.4.6",
+    "electrode-archetype-react-app": "https://github.com/Aweary/electrode-archetype-react-app.git#pwa",
+    "electrode-csrf-jwt": "^1.0.0",
+    "electrode-react-ssr-caching": "^0.1.5",
+    "electrode-redux-router-engine": "^1.0.0",
+    "electrode-server": "^1.0.0",
+    "electrode-static-paths": "^1.0.0",
+    "lodash": "^4.10.1",
+    "material-ui": "^0.16.1",
+    "react-tap-event-plugin": "^2.0.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "electrode-archetype-react-app-dev": "^1.0.0",
+    "gulp": "^3.9.1",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
+    "sw-precache-webpack-plugin": "^0.5.1",
+    "web-app-manifest-loader": "^0.1.1"
+  }
+}
