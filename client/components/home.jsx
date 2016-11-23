@@ -2,8 +2,6 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-// import TextField from "material-ui/TextField";
-// import SearchIcon from "material-ui/svg-icons/action/search";
 import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import Header from "./header";
 import BeerList from "./beer-list";
@@ -29,10 +27,6 @@ const styles = {
     textAlign: "justify",
     lineHeight: "40px"
   },
-  search: {
-    textAlign: "center",
-    paddingBottom: "20px"
-  },
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",
     textAlign: "center",
@@ -42,6 +36,7 @@ const styles = {
 };
 
 /*eslint no-class-assign: 0*/
+/*eslint react/no-did-mount-set-state: 0*/
 export class Home extends React.Component {
   componentDidMount() {
     const {dispatch, location} = this.props;
@@ -58,7 +53,7 @@ export class Home extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Header />
+          <Header image="header"/>
 
           <h1 style={styles.header}>Explore</h1>
           <p style={styles.subText}>There are so many great beers around the world.
@@ -66,10 +61,6 @@ export class Home extends React.Component {
             Progressive Beer is a handy web app that is designed to help you learn
             everything there is to know about beers! Explore the many beer styles in
             list below for more information.</p>
-
-          <div style={styles.search}>
-            {/* <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon /> */}
-          </div>
 
           <div style={styles.root}>
             <BeerList beers={this.props.data}/>

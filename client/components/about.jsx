@@ -46,7 +46,7 @@ const styles = {
 const About = () => (
   <MuiThemeProvider>
     <div>
-      <Header />
+      <Header image="about" />
 
       <h1 style={styles.titleHeader}> About </h1>
       <p style={styles.subText}> Progressive Beer is a web app that is designed to leverage all the great features of Service Workers and build a truly Progressive Web App. If you'd like to learn more about Progressive Web Apps, I recommend checking out <p style={styles.link}><a href="https://developers.google.com/web/progressive-web-apps/">this link</a></p> for more information. Oh, and once you've visited a web page on this site, it will be available offline! </p>

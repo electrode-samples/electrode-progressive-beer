@@ -38,7 +38,7 @@ class BeerStyle extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Header />
+          <Header image="beerstyle" />
 
           <h1 style={styles.header}>This Beer's Style</h1>
           <p style={styles.subText}>{beerStyleDesc}</p>
