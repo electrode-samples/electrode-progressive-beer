@@ -9,6 +9,7 @@ import Header from "./header";
 import BeerList from "./beer-list";
 import Footer from "./footer";
 import beerMapImage from "../images/beer-map.png";
+import {fetchBeers} from "../actions";
 
 const styles = {
   root: {
@@ -42,26 +43,15 @@ const styles = {
 
 /*eslint no-class-assign: 0*/
 export class Home extends React.Component {
-  /* eslint react/no-did-mount-set-state: 0 */
   componentDidMount() {
-    fetch(`/getBeerStyles?init_cards=${this.props.location.query.prefetch_cards}`, {
-      credentials: "same-origin",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then((resp) => {
-      resp.json().then((beerData) => {
-        this.props.dispatch({
-          type: "ADD_BEER_STYLES",
-          data: beerData.data
-        });
-      });
-    })
-    .catch((e) => {
-      this.setState({beerStyles: `GET FAILED: ${e.toString()}`});
-    });
+    const {dispatch, location} = this.props;
+
+    this.fetchBeers = () => {
+      window.removeEventListener("scroll", this.fetchBeers);
+      dispatch(fetchBeers(location.query.prefetch_cards));
+    };
+
+    window.addEventListener("scroll", this.fetchBeers);
   }
 
   render() {
@@ -118,7 +108,7 @@ Home.propTypes = {
 class HomeWrapper extends React.Component {
   render() {
     return (
-      <Home {...this.props}/>
+      <Home {...this.props} />
     );
   }
 }
