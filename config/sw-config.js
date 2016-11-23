@@ -5,6 +5,9 @@ module.exports = {
       urlPattern: /\/$/
     }, {
       handler: "fastest",
+      urlPattern: /getBeerStyles/
+    }, {
+      handler: "fastest",
       urlPattern: /\/about$/
     }, {
       handler: "fastest",

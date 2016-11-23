@@ -1,12 +1,15 @@
+import {RECEIVE_BEERS} from "../actions";
+
 const rootReducer = (state = {}, action) => {
   switch (action.type) {
-  case "ADD_BEER_STYLES":
-    const newState = [...state.data].concat(action.data);
-    state = newState;
-    state.data = newState;
+    case RECEIVE_BEERS:
+      return {
+        ...state,
+        data: action.data
+      }
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export default rootReducer;
