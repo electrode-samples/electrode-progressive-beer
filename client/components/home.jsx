@@ -2,8 +2,8 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-import TextField from "material-ui/TextField";
-import SearchIcon from "material-ui/svg-icons/action/search";
+// import TextField from "material-ui/TextField";
+// import SearchIcon from "material-ui/svg-icons/action/search";
 import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import Header from "./header";
 import BeerList from "./beer-list";
@@ -78,7 +78,7 @@ export class Home extends React.Component {
             list below for more information.</p>
 
           <div style={styles.search}>
-            <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon />
+            {/* <TextField floatingLabelText="Filter beer styles..." /> <SearchIcon /> */}
           </div>
 
           <div style={styles.root}>
