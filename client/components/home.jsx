@@ -44,11 +44,11 @@ const styles = {
 /*eslint no-class-assign: 0*/
 export class Home extends React.Component {
   componentDidMount() {
-    const {dispatch} = this.props;
+    const {dispatch, location} = this.props;
 
     this.fetchBeers = () => {
       window.removeEventListener("scroll", this.fetchBeers);
-      dispatch(fetchBeers());
+      dispatch(fetchBeers(location.query.prefetch_cards));
     };
 
     window.addEventListener("scroll", this.fetchBeers);
