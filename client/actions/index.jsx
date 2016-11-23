@@ -10,10 +10,10 @@ export const requestBeers = () => ({
   type: REQUEST_BEERS
 });
 
-export const fetchBeers = (prefetchCards) => dispatch => {
+export const fetchBeers = (prefetchCards) => (dispatch) => {
   dispatch(requestBeers());
 
   return fetch(`/getBeerStyles?prefetch_cards=${prefetchCards}`)
-    .then(response => response.json())
-    .then(json => dispatch(receiveBeers(json)));
+    .then((res) => res.json())
+    .then((json) => dispatch(receiveBeers(json)));
 };
