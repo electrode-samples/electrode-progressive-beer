@@ -5,7 +5,10 @@ import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-import beerImage from "../images/beer.jpg";
+import homeImage from "../images/beer.jpg";
+import aboutImage from "../images/about.jpg";
+import beerStyleImage from "../images/styles.jpg";
+import beerIcon from "../images/beer-icon.svg";
 
 const styles = {
   overlayContentStyle: {
@@ -25,38 +28,49 @@ const styles = {
   }
 };
 
-const Header = () => (
-  <div>
-    <AppBar
-      title="Progressive Beer"
-      style={styles.appBarStyle}
-      iconElementLeft={<IconButton />}
-      iconElementRight={
-        <IconMenu
-          iconButtonElement={
-            <IconButton><MoreVertIcon /></IconButton>
-          }
-          targetOrigin={{horizontal: "right", vertical: "top"}}
-          anchorOrigin={{horizontal: "right", vertical: "top"}}
-        >
-          <MenuItem primaryText="Home" href="/"/>
-          <MenuItem primaryText="About" href="/about" />
-        </IconMenu>
-      }
-    />
+export class Header extends React.Component {
+  render() {
+    let beerImage = homeImage;
+    if (this.props.image === "about") {
+      beerImage = aboutImage;
+    } else if (this.props.image === "beerstyle"){
+      beerImage = beerStyleImage;
+    }
 
-    <Card style={styles.BeerImgCard}>
-      <CardMedia
-        overlay={
-          <CardTitle
-            title="Progressive Beer" subtitle="The Ultimate Guide to Beer all around the World" />
-        }
-        overlayContentStyle={styles.overlayContentStyle}
-      >
-        <img src={beerImage} alt="beer background" />
-      </CardMedia>
-    </Card>
-  </div>
-);
+    return (
+      <div>
+        <AppBar
+          title="Progressive Beer"
+          style={styles.appBarStyle}
+          iconElementLeft={<beerIcon />}
+          iconElementRight={
+            <IconMenu
+              iconButtonElement={
+                <IconButton><MoreVertIcon /></IconButton>
+              }
+              targetOrigin={{horizontal: "right", vertical: "top"}}
+              anchorOrigin={{horizontal: "right", vertical: "top"}}
+            >
+              <MenuItem primaryText="Home" href="/"/>
+              <MenuItem primaryText="About" href="/about" />
+            </IconMenu>
+          }
+        />
+
+        <Card style={styles.BeerImgCard}>
+          <CardMedia
+            overlay={
+              <CardTitle
+                title="Progressive Beer" subtitle="The Ultimate Guide to Beer all around the World" />
+            }
+            overlayContentStyle={styles.overlayContentStyle}
+          >
+            <img src={beerImage} alt="beer background" />
+          </CardMedia>
+        </Card>
+      </div>
+    );
+  }
+}
 
 export default Header;

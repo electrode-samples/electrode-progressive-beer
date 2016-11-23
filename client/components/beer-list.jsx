@@ -6,7 +6,7 @@ import BeerCard from "./beer-card";
 const NUM_ABOVE_THE_FOLD = 6;
 const styles = {
   gridList: {
-    width: "90%"
+    width: "95%"
   }
 };
 
@@ -14,11 +14,11 @@ export class BeerList extends React.Component {
   render() {
     return (
       <div>
-          {this.renderBeerCards(0, NUM_ABOVE_THE_FOLD)}
+        {this.renderBeerCards(0, NUM_ABOVE_THE_FOLD)}
 
-          <AboveTheFoldOnlyServerRender>
-            {this.renderBeerCards(NUM_ABOVE_THE_FOLD)}
-          </AboveTheFoldOnlyServerRender>
+        <AboveTheFoldOnlyServerRender>
+          {this.renderBeerCards(NUM_ABOVE_THE_FOLD)}
+        </AboveTheFoldOnlyServerRender>
       </div>
     );
   }
