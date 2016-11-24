@@ -23,7 +23,12 @@
     "coverage": "gulp check",
     "dev": "gulp dev",
     "start": "gulp server",
-    "test": "gulp check"
+    "test": "gulp check",
+    "nuke": "rm -rf node_modules; rm -rf dist; rm -rf .isomorphic-loader-config.json",
+    "heroku-postbuild": "gulp build"
+  },
+  "engines": {
+    "node": "^7.0.0"
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
@@ -41,6 +46,7 @@
   },
   "devDependencies": {
     "electrode-archetype-react-app-dev": "^1.0.0",
+    "favicons-webpack-plugin": "^0.0.7",
     "gulp": "^3.9.1",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
