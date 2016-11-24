@@ -11,4 +11,4 @@ npm i
 gulp build
 npm run server
 ```
-Then open localhost:4000 in a browser.
+Then open localhost:3000 in a browser.
