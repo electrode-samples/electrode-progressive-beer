@@ -24,8 +24,8 @@
     "dev": "gulp dev",
     "start": "gulp server",
     "test": "gulp check",
-    "nuke": "rm -rf node_modules; rm -rf dist; rm -rf .isomorphic-loader-config.json",
-    "heroku-postbuild": "gulp build"
+    "heroku-postbuild": "gulp build",
+    "nuke": "gulp clean; rm -rf node_modules; rm .isomorphic-loader-config.json; rm npm-debug.log"
   },
   "engines": {
     "node": "^7.0.0"
