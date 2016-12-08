@@ -6,6 +6,8 @@ import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
 import darkBeerImage from "../images/srm/dark.jpg";
 
+const srmThresholdMin = 10;
+const srmThresholdMax = 10;
 const styles = {
   card: {
     width: "250px",
@@ -18,10 +20,10 @@ export class BeerCard extends React.Component {
   render() {
     let beerImage = lightBeerImage;
 
-    if (this.props.beer.srmMax > 10 && this.props.beer.srmMax < 20) {
+    if (this.props.beer.srmMax > srmThresholdMin && this.props.beer.srmMax < srmThresholdMax) {
       beerImage = amberBeerImage;
     }
-    else if (this.props.beer.srmMax > 20) {
+    else if (this.props.beer.srmMax > srmThresholdMax) {
       beerImage = darkBeerImage;
     }
 

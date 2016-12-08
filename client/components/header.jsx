@@ -1,11 +1,8 @@
 import React, {PropTypes} from "react";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
-import IconMenu from "material-ui/IconMenu";
-import MenuItem from "material-ui/MenuItem";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from "material-ui/FlatButton";
 import homeImage from "../images/beer.jpg";
 import aboutImage from "../images/about.jpg";
 import beerStyleImage from "../images/styles.jpg";

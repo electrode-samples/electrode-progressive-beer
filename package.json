@@ -46,6 +46,8 @@
   },
   "devDependencies": {
     "electrode-archetype-react-app-dev": "^1.0.0",
+    "eslint": "^3.11.1",
+    "eslint-config-defaults": "^9.0.0",
     "favicons-webpack-plugin": "^0.0.7",
     "gulp": "^3.9.1",
     "redux-devtools": "^3.3.1",

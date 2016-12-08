@@ -13,9 +13,9 @@ const styles = {
   }
 };
 
-export class BeerDetails extends React.Component {
+class BeerDetails extends React.Component {
   render() {
-    const beerStyleDesc = this.props.data;
+    const beerDesc = this.props.data;
 
     return (
       <MuiThemeProvider>
@@ -24,7 +24,7 @@ export class BeerDetails extends React.Component {
 
           <h1 style={styles.header}> Features </h1>
 
-          {beerStyleDesc}
+          {beerDesc}
           <Footer />
         </div>
       </MuiThemeProvider>
