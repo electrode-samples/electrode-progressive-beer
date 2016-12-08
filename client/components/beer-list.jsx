@@ -3,7 +3,8 @@ import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import {GridList} from "material-ui/GridList";
 import BeerCard from "./beer-card";
 
-const NUM_ABOVE_THE_FOLD = 6;
+const ABOVE_THE_FOLD_MIN = 0;
+const ABOVE_THE_FOLD_MAX = 6;
 const styles = {
   gridList: {
     width: "95%"
@@ -14,10 +15,10 @@ export class BeerList extends React.Component {
   render() {
     return (
       <div>
-        {this.renderBeerCards(0, NUM_ABOVE_THE_FOLD)}
+        {this.renderBeerCards(ABOVE_THE_FOLD_MIN, ABOVE_THE_FOLD_MAX)}
 
         <AboveTheFoldOnlyServerRender>
-          {this.renderBeerCards(NUM_ABOVE_THE_FOLD)}
+          {this.renderBeerCards(ABOVE_THE_FOLD_MAX)}
         </AboveTheFoldOnlyServerRender>
       </div>
     );

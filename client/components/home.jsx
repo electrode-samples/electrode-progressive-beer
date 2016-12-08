@@ -53,7 +53,11 @@ export class Home extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Header image="header"/>
+          <Header
+            image="header"
+            title="Progressive Beer"
+            subtitle="The Ultimate Guide to Beer all around the World"
+          />
 
           <h1 style={styles.header}>Explore</h1>
           <p style={styles.subText}>There are so many great beers around the world.

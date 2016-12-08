@@ -55,11 +55,7 @@ export class Header extends React.Component {
 
         <Card style={styles.BeerImgCard}>
           <CardMedia
-            overlay={
-              <CardTitle
-                title="Progressive Beer"
-                subtitle="The Ultimate Guide to Beer all around the World" />
-            }
+            overlay={<CardTitle title={this.props.title} subtitle={this.props.subtitle}/>}
             overlayContentStyle={styles.overlayContentStyle}
           >
             <img src={beerImage} alt="beer background" />
@@ -71,7 +67,9 @@ export class Header extends React.Component {
 }
 
 Header.propTypes = {
-  image: PropTypes.string
+  image: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
 };
 
 Header.defaultProps = {
