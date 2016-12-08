@@ -1,19 +1,10 @@
-import React from "react";
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Header from "./header";
 import Footer from "./footer";
 
 const styles = {
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around"
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-    overflowY: "auto"
-  },
   header: {
     fontSize: "40px",
     paddingTop: "40%",
@@ -24,13 +15,16 @@ const styles = {
 
 export class BeerDetails extends React.Component {
   render() {
+    const beerStyleDesc = this.props.data;
+
     return (
       <MuiThemeProvider>
         <div>
-          <Header />
+          <Header image="beerdetails"/>
 
           <h1 style={styles.header}> Features </h1>
 
+          {beerStyleDesc}
           <Footer />
         </div>
       </MuiThemeProvider>
@@ -38,4 +32,14 @@ export class BeerDetails extends React.Component {
   }
 }
 
-export default BeerDetails;
+BeerDetails.propTypes = {
+  data: PropTypes.object
+};
+
+const mapStateToProps = (state) => ({
+  data: state.data
+});
+
+export default connect(
+  mapStateToProps
+)(BeerDetails);

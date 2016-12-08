@@ -39,7 +39,8 @@
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
-    "lodash": "^4.10.1",
+    "eslint-config-defaults": "^9.0.0",
+    "lodash": "^4.17.2",
     "material-ui": "^0.16.1",
     "react-tap-event-plugin": "^2.0.0",
     "redux-thunk": "^2.1.0"

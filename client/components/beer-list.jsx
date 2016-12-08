@@ -25,7 +25,7 @@ export class BeerList extends React.Component {
 
   renderBeerCards(start, end) {
     const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
-      <BeerCard key={i} beer={beer} />);
+      <BeerCard key={i} beer={beer} from={this.props.from}/>);
 
     return (
       <GridList cellHeight={300} style={styles.gridList} cols={3}>
@@ -36,7 +36,8 @@ export class BeerList extends React.Component {
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.arrayOf(PropTypes.object)
+  beers: PropTypes.arrayOf(PropTypes.object),
+  from: PropTypes.string
 };
 
 BeerList.defaultProps = {

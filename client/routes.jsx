@@ -5,7 +5,6 @@ import BeerStyle from "./components/beer-style";
 import BeerDetails from "./components/beer-details";
 import Home from "./components/home";
 
-
 export const routes = (
   <Route path="/">
     <IndexRoute component={Home}/>
