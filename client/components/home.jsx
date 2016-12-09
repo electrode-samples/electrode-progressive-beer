@@ -25,7 +25,8 @@ const styles = {
     fontSize: "20px",
     width: "90%",
     textAlign: "justify",
-    lineHeight: "40px"
+    lineHeight: "40px",
+    paddingBottom: "5%"
   },
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",

@@ -19,11 +19,15 @@ const styles = {
     fontFamily: "'Gabriela', serif",
     backgroundColor: "rgba(0,0,0,0)"
   },
-  titleText: {
+  appText: {
     fontFamily: "'Gabriela', serif",
     color: "#FFFFFF",
     textDecoration: "none",
     marginLeft: "5px"
+  },
+  titleStyle: {
+    fontSize: "400%",
+    paddingBottom: "3%"
   },
   BeerImgCard: {
     fontFamily: "'Gabriela', serif",
@@ -47,7 +51,7 @@ export class Header extends React.Component {
     return (
       <div>
         <AppBar
-          title={<a style={styles.titleText} href="/">Progressive Beer</a>}
+          title={<a style={styles.appText} href="/">Progressive Beer</a>}
           style={styles.appBarStyle}
           iconElementLeft={<IconButton><beerIcon /></IconButton>}
           iconElementRight={<FlatButton label="About" href="/about" />}
@@ -55,7 +59,7 @@ export class Header extends React.Component {
 
         <Card style={styles.BeerImgCard}>
           <CardMedia
-            overlay={<CardTitle title={this.props.title} subtitle={this.props.subtitle}/>}
+            overlay={<CardTitle title={this.props.title} titleStyle={styles.titleStyle} subtitle={this.props.subtitle}/>}
             overlayContentStyle={styles.overlayContentStyle}
           >
             <img src={beerImage} alt="beer background" />
