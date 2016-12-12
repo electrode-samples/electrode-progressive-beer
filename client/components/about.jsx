@@ -42,7 +42,6 @@ const styles = {
   }
 };
 
-/* eslint-disable max-len */
 const About = () => (
   <MuiThemeProvider>
     <div>

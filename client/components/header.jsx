@@ -59,7 +59,13 @@ export class Header extends React.Component {
 
         <Card style={styles.BeerImgCard}>
           <CardMedia
-            overlay={<CardTitle title={this.props.title} titleStyle={styles.titleStyle} subtitle={this.props.subtitle}/>}
+            overlay={
+              <CardTitle
+                title={this.props.title}
+                titleStyle={styles.titleStyle}
+                subtitle={this.props.subtitle}
+              />
+            }
             overlayContentStyle={styles.overlayContentStyle}
           >
             <img src={beerImage} alt="beer background" />

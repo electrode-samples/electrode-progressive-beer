@@ -36,6 +36,7 @@ const styles = {
   }
 };
 
+/* eslint-disable max-len */
 export class BeerDetails extends React.Component {
   render() {
     return (
