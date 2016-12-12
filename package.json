@@ -36,24 +36,23 @@
     "electrode-archetype-react-app": "^1.5.0",
     "electrode-csrf-jwt": "^1.0.0",
     "electrode-react-ssr-caching": "^0.1.5",
+    "electrode-react-webapp": "^1.1.0",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.2",
     "material-ui": "^0.16.1",
     "react-tap-event-plugin": "^2.0.0",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "electrode-archetype-react-app-dev": "^1.0.0",
+    "electrode-archetype-react-app-dev": "^1.5.0",
     "eslint": "^3.11.1",
     "eslint-config-defaults": "^9.0.0",
-    "favicons-webpack-plugin": "^0.0.7",
     "gulp": "^3.9.1",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
-    "redux-devtools-log-monitor": "^1.0.11",
-    "sw-precache-webpack-plugin": "^0.5.1",
-    "web-app-manifest-loader": "^0.1.1"
+    "redux-devtools-log-monitor": "^1.0.11"
   }
 }

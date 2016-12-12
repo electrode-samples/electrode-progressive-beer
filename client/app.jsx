@@ -1,14 +1,18 @@
+import "isomorphic-fetch";
 import React from "react";
 import {render} from "react-dom";
-import {routes} from "./routes";
 import {Router, browserHistory} from "react-router";
 import {createStore, compose, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import {Provider} from "react-redux";
-import rootReducer from "./reducers";
-import injectTapEventPlugin from "react-tap-event-plugin";
 import DevTools from "../client/devtools";
+import rootReducer from "./reducers";
+import {routes} from "./routes";
 import "./styles/base.css";
+
+require.ensure(["./sw-registration"], (require) => {
+  require("./sw-registration")();
+}, "sw-registration");
 
 const enhancer = compose(
   // Add middlewares you want to use in development:
@@ -18,8 +22,6 @@ const enhancer = compose(
 );
 
 window.webappStart = () => {
-  injectTapEventPlugin();
-
   const initialState = window.__PRELOADED_STATE__;
   const store = createStore(rootReducer, initialState, enhancer);
 

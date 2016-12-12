@@ -1,11 +1,12 @@
 import ReduxRouterEngine from 'electrode-redux-router-engine';
 import React from 'react';
 import {routes} from "../../client/routes";
-const Promise = require("bluebird");
-const fs = require('fs');
 import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
 import beerStyles from "../plugins/beer/data/styles.json";
+
+const Promise = require("bluebird");
+const fs = require('fs');
 
 function importBeers(styleId){
   let result = [];
