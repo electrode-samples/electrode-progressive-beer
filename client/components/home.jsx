@@ -42,12 +42,7 @@ export class Home extends React.Component {
   componentDidMount() {
     const {dispatch, location} = this.props;
 
-    this.fetchBeers = () => {
-      window.removeEventListener("scroll", this.fetchBeers);
-      dispatch(fetchBeers(location.query.prefetch_cards));
-    };
-
-    window.addEventListener("scroll", this.fetchBeers);
+    dispatch(fetchBeers(location.query.prefetch_cards));
   }
 
   render() {

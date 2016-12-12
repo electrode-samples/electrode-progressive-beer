@@ -32,7 +32,7 @@ function importBeers(styleId){
   return result;
 }
 
-const DEFAULT_BEER_CARDS = 6;
+const DEFAULT_BEER_CARDS = 99;
 
 function storeInitializer(req) {
   let initialState;

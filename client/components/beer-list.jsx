@@ -4,7 +4,7 @@ import {GridList} from "material-ui/GridList";
 import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
-const ABOVE_THE_FOLD_MAX = 6;
+const ABOVE_THE_FOLD_MAX = 99;
 const styles = {
   gridList: {
     width: "95%"
