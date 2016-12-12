@@ -51,9 +51,7 @@ SSRCaching.setCachingConfig(cacheConfig);
  * https://github.com/webpack/css-loader#local-scope
  * https://github.com/css-modules/postcss-modules-scope
  */
-supports.cssModuleHook({
-  generateScopedName: "[name]__[local]___[hash:base64:5]"
-});
+supports.cssModuleHook();
 
 supports.isomorphicExtendRequire().then(() => {
   require("electrode-server")(config, [staticPathsDecor()]); // eslint-disable-line

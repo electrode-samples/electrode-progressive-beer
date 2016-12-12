@@ -6,14 +6,13 @@
         "expiresIn": 60
       }
     },
-    "./server/plugins/csrf": {},
     "webapp": {
-      "module": "./server/plugins/webapp",
-      "options": {
-        "pageTitle": "Electrode Progressive Beer",
-        "paths": {
-          "/{args*}": {
-            "content": {
+      "module": "electrode-react-webapp",
+        "options": {
+          "pageTitle": "Electrode Progressive Beer",
+          "paths": {
+              "/{args*}": {
+              "content": {
               "module": "./server/views/index-view"
             }
           }
@@ -22,6 +21,9 @@
     },
     "beer": {
       "module": "./server/plugins/beer"
+    },
+    "pwa": {
+      "module": "./server/plugins/pwa"
     }
   }
 }

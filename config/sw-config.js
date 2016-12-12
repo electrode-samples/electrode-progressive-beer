@@ -2,24 +2,24 @@ module.exports = {
   cache: {
     runtimeCaching: [{
       handler: "fastest",
-      urlPattern: /\/$/
+      urlPattern: "\/$"
     }, {
       handler: "fastest",
-      urlPattern: /getBeerStyles/
+      urlPattern: "/getBeerStyles/"
     }, {
       handler: "fastest",
-      urlPattern: /\/about$/
+      urlPattern: "/\/about$/"
     }, {
       handler: "fastest",
-      urlPattern: /^https?:\/\/fonts.gstatic.com\//
+      urlPattern: "/^https?:\/\/fonts.gstatic.com\//"
     }, {
       handler: "fastest",
-      urlPattern: /^https?:\/\/fonts.googleapis.com\//
+      urlPattern: "/^https?:\/\/fonts.googleapis.com\//"
     }, {
       handler: "fastest",
-      urlPattern: /^https?:\/\/ajax.googleapis.com\//
+      urlPattern: "/^https?:\/\/ajax.googleapis.com\//"
     }],
-    staticFileGlobs: ['dist/**/*']
+    staticFileGlobs: ["dist/js/*.{js,css,png,jpg,svg}"]
   },
   manifest: {
     background: "#FFFFFF",
