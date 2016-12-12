@@ -1,7 +1,7 @@
 /* eslint-env browser */
 /* eslint-disable no-console */
 
-module.exports = (notify) => {
+module.exports = () => {
   // Exit early if the navigator isn't available
   if (typeof navigator === "undefined") {
     return;
@@ -30,9 +30,9 @@ module.exports = (notify) => {
               // is up to date (?)
               // TODO: Figure out why this is the case
               if (navigator.serviceWorker.controller) {
-                notify.show("New or updated content is available, refresh!", "warning");
+                console.log("New or updated content is available, refresh!");
               } else {
-                notify.show("Content is now available offline!", "success");
+                console.log("Content is now available offline!");
               }
               break;
             case "activating":
