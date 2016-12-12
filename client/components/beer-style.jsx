@@ -1,14 +1,14 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
+import BeerList from "./beer-list";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Header from "./header";
 import Footer from "./footer";
 
 const styles = {
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around"
+    minHeight: "800px",
+    textAlign: "-webkit-center"
   },
   header: {
     fontSize: "40px",
@@ -38,13 +38,19 @@ class BeerStyle extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Header image="beerstyle" />
+          <Header
+            image="beerstyle"
+            title={this.props.data.name}
+            subtitle=""
+          />
 
           <h1 style={styles.header}>This Beer's Style</h1>
           <p style={styles.subText}>{beerStyleDesc}</p>
 
-          <h1 style={styles.availableHeader}></h1>
+          <h1 style={styles.availableHeader}>Available Beers</h1>
+
           <div style={styles.root}>
+            <BeerList beers={this.props.data.beers} from="styles"/>
           </div>
 
           <Footer />

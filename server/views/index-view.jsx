@@ -2,11 +2,37 @@ import ReduxRouterEngine from 'electrode-redux-router-engine';
 import React from 'react';
 import {routes} from "../../client/routes";
 const Promise = require("bluebird");
+const fs = require('fs');
 import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
 import beerStyles from "../plugins/beer/data/styles.json";
 
-const DEFAULT_BEER_CARDS = 6;
+function importBeers(styleId){
+  let result = [];
+  let counter = 0;
+
+  let styleMetaData = fs.readFileSync(__dirname + '/../plugins/beer/data/beers-style-' + styleId + '-page-1.json', 'utf8');
+  if(!styleMetaData) throw err;
+
+  let totalPages = JSON.parse(styleMetaData).numberOfPages;
+
+  for(let pages = 1; pages <= totalPages; pages++) {
+
+    let styleData = fs.readFileSync(__dirname + '/../plugins/beer/data/beers-style-' + styleId + '-page-' + pages + '.json', 'utf8');
+    if(!styleData) throw err;
+
+    let parsedStyleData = JSON.parse(styleData);
+    parsedStyleData = parsedStyleData.data;
+
+    Object.keys(parsedStyleData).forEach(function(key) {
+      result[counter++] = parsedStyleData[key];
+    });
+  }
+
+  return result;
+}
+
+const DEFAULT_BEER_CARDS = 99;
 
 function storeInitializer(req) {
   let initialState;
@@ -21,9 +47,25 @@ function storeInitializer(req) {
     let styleId = Number(req.url.query.style);
     let data = null;
 
-    for (let i = 0 ; i < beerStyles.data.length; i++) {
+    let beersOfStyleID = importBeers(styleId);
+    for (let i = 0; i < beerStyles.data.length; i++) {
       if (beerStyles.data[i].id === styleId){
         data = beerStyles.data[i];
+        break;
+      }
+    }
+
+    data.beers = beersOfStyleID;
+    initialState = {data};
+  } else if(req.path === "/beerdetails") {
+    let styleId = Number(req.url.query.style);
+    let beerId = req.url.query.beer;
+    let data = null;
+
+    let beers = importBeers(styleId);
+    for (let i = 0; i < beers.length; i++) {
+      if (beers[i].id === beerId){
+        data = beers[i];
         break;
       }
     }

@@ -45,7 +45,7 @@ function getIconStats(iconStatsPath) {
     iconStats = fs.readFileSync(Path.resolve(iconStatsPath)).toString();
     iconStats = JSON.parse(iconStats);
   } catch (err) {
-    // noop
+    iconStats = "";
   }
   /* Include the path prefix so the icons resolve */
   if (iconStats && iconStats.html) {

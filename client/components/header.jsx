@@ -1,13 +1,12 @@
 import React, {PropTypes} from "react";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
-import IconMenu from "material-ui/IconMenu";
-import MenuItem from "material-ui/MenuItem";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 import homeImage from "../images/beer.jpg";
 import aboutImage from "../images/about.jpg";
 import beerStyleImage from "../images/styles.jpg";
+import beerDetailsImage from "../images/beer-page.jpg";
 import beerIcon from "../images/beer-icon.svg";
 
 const styles = {
@@ -19,6 +18,16 @@ const styles = {
   appBarStyle: {
     fontFamily: "'Gabriela', serif",
     backgroundColor: "rgba(0,0,0,0)"
+  },
+  appText: {
+    fontFamily: "'Gabriela', serif",
+    color: "#FFFFFF",
+    textDecoration: "none",
+    marginLeft: "5px"
+  },
+  titleStyle: {
+    fontSize: "400%",
+    paddingBottom: "3%"
   },
   BeerImgCard: {
     fontFamily: "'Gabriela', serif",
@@ -35,34 +44,27 @@ export class Header extends React.Component {
       beerImage = aboutImage;
     } else if (this.props.image === "beerstyle") {
       beerImage = beerStyleImage;
+    } else if (this.props.image === "beerdetails") {
+      beerImage = beerDetailsImage;
     }
 
     return (
       <div>
         <AppBar
-          title="Progressive Beer"
+          title={<a style={styles.appText} href="/">Progressive Beer</a>}
           style={styles.appBarStyle}
-          iconElementLeft={<beerIcon />}
-          iconElementRight={
-            <IconMenu
-              iconButtonElement={
-                <IconButton><MoreVertIcon /></IconButton>
-              }
-              targetOrigin={{horizontal: "right", vertical: "top"}}
-              anchorOrigin={{horizontal: "right", vertical: "top"}}
-            >
-              <MenuItem primaryText="Home" href="/"/>
-              <MenuItem primaryText="About" href="/about" />
-            </IconMenu>
-          }
+          iconElementLeft={<IconButton><beerIcon /></IconButton>}
+          iconElementRight={<FlatButton label="About" href="/about" />}
         />
 
         <Card style={styles.BeerImgCard}>
           <CardMedia
             overlay={
               <CardTitle
-                title="Progressive Beer"
-                subtitle="The Ultimate Guide to Beer all around the World" />
+                title={this.props.title}
+                titleStyle={styles.titleStyle}
+                subtitle={this.props.subtitle}
+              />
             }
             overlayContentStyle={styles.overlayContentStyle}
           >
@@ -75,7 +77,9 @@ export class Header extends React.Component {
 }
 
 Header.propTypes = {
-  image: PropTypes.string
+  image: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
 };
 
 Header.defaultProps = {

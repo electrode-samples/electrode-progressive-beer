@@ -25,7 +25,8 @@ const styles = {
     fontSize: "20px",
     width: "90%",
     textAlign: "justify",
-    lineHeight: "40px"
+    lineHeight: "40px",
+    paddingBottom: "5%"
   },
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",
@@ -41,19 +42,18 @@ export class Home extends React.Component {
   componentDidMount() {
     const {dispatch, location} = this.props;
 
-    this.fetchBeers = () => {
-      window.removeEventListener("scroll", this.fetchBeers);
-      dispatch(fetchBeers(location.query.prefetch_cards));
-    };
-
-    window.addEventListener("scroll", this.fetchBeers);
+    dispatch(fetchBeers(location.query.prefetch_cards));
   }
 
   render() {
     return (
       <MuiThemeProvider>
         <div>
-          <Header image="header"/>
+          <Header
+            image="header"
+            title="Progressive Beer"
+            subtitle="The Ultimate Guide to Beer all around the World"
+          />
 
           <h1 style={styles.header}>Explore</h1>
           <p style={styles.subText}>There are so many great beers around the world.
