@@ -1,14 +1,15 @@
 module.exports = {
   cache: {
+    cacheId: "electrode-progressive-beer",
+    stripPrefix: "dist/js/",
+    importScripts: ['./sw-events.js'],
+    staticFileGlobs: ["dist/js/*.{js,css,png,jpg,svg}"],
     runtimeCaching: [{
       handler: "fastest",
       urlPattern: "\/$"
     }, {
       handler: "fastest",
       urlPattern: "/getBeerStyles/"
-    }, {
-      handler: "fastest",
-      urlPattern: "/\/about$/"
     }, {
       handler: "fastest",
       urlPattern: "/^https?:\/\/fonts.gstatic.com\//"
@@ -18,9 +19,7 @@ module.exports = {
     }, {
       handler: "fastest",
       urlPattern: "/^https?:\/\/ajax.googleapis.com\//"
-    }],
-    importScripts: ['./sw-events.js'],
-    staticFileGlobs: ["dist/js/*.{js,css,png,jpg,svg}"]
+    }]
   },
   manifest: {
     background: "#FFFFFF",
