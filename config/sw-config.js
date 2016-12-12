@@ -19,6 +19,7 @@ module.exports = {
       handler: "fastest",
       urlPattern: "/^https?:\/\/ajax.googleapis.com\//"
     }],
+    importScripts: ['./sw-events.js'],
     staticFileGlobs: ["dist/js/*.{js,css,png,jpg,svg}"]
   },
   manifest: {
