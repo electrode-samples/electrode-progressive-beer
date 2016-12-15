@@ -44,7 +44,6 @@ export class Home extends React.Component {
 
     dispatch(fetchBeers(location.query.prefetch_cards));
   }
-
   render() {
     return (
       <MuiThemeProvider>

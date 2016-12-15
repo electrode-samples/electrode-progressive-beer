@@ -9,7 +9,13 @@ const styles = {
   header: {
     fontSize: "40px",
     paddingTop: "40%",
-    paddingBottom: "50px",
+    paddingBottom: "5%",
+    textAlign: "center"
+  },
+  secondaryHeaders: {
+    fontSize: "30px",
+    paddingTop: "2%",
+    paddingBottom: "2%",
     textAlign: "center"
   },
   subText: {
@@ -51,10 +57,17 @@ export class BeerDetails extends React.Component {
           <h1 style={styles.header}>Features</h1>
           <p style={styles.subText}>{this.props.data.description}</p>
 
+          <h1 style={styles.secondaryHeaders}>Details</h1>
           <p style={styles.detailsText}>International Bitterness Units scale: {this.props.data.ibu}</p>
           <p style={styles.detailsText}>Alcohol by Volume: {this.props.data.style.abvMin} to {this.props.data.style.abvMax}</p>
           <p style={styles.detailsText}>Final Gravity: {this.props.data.style.fgMin} to {this.props.data.style.fgMax}</p>
           <p style={styles.detailsText}>Standard Reference Method: {this.props.data.style.srmMin} to {this.props.data.style.srmMax}</p>
+
+          <h1 style={styles.secondaryHeaders}>Brewery Info</h1>
+          <p style={styles.detailsText}>Brewery Name: {this.props.data.breweries[0].name}</p>
+          <p style={styles.detailsText}>About: {this.props.data.breweries[0].description}</p>
+          <p style={styles.detailsText}>Website: {this.props.data.breweries[0].website}</p>
+          <p style={styles.detailsText}>Established: {this.props.data.breweries[0].established}</p>
 
           <div style={styles.stylesButton}><FlatButton label="Back to Styles" href={`/beerstyle?style=${this.props.data.style.id}`}/></div>
           <Footer />
