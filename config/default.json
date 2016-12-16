@@ -7,7 +7,7 @@
       }
     },
     "webapp": {
-      "module": "electrode-react-webapp",
+      "module": "electrode-react-webapp/lib/hapi",
         "options": {
           "pageTitle": "Electrode Progressive Beer",
           "paths": {

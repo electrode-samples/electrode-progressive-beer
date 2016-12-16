@@ -5,21 +5,31 @@ import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
 const ABOVE_THE_FOLD_MAX = 99;
+
 const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: "90%",
+    height: "100%",
+    justifyContent: 'space-around'
+  },
   gridList: {
-    width: "95%"
+    display: 'flex',
+    overflowY: 'auto'
   }
 };
 
 export class BeerList extends React.Component {
   render() {
     return (
-      <div>
+      <div style={styles.root}>
         {this.renderBeerCards(ABOVE_THE_FOLD_MIN, ABOVE_THE_FOLD_MAX)}
-
+        <br />
         <AboveTheFoldOnlyServerRender>
           {this.renderBeerCards(ABOVE_THE_FOLD_MAX)}
         </AboveTheFoldOnlyServerRender>
+        <br />
       </div>
     );
   }
@@ -29,7 +39,7 @@ export class BeerList extends React.Component {
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
 
     return (
-      <GridList cellHeight={300} style={styles.gridList} cols={3}>
+      <GridList style={styles.gridList} cols={3} padding={60}>
         {beerCards}
       </GridList>
     );

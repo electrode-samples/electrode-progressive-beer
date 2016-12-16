@@ -8,8 +8,8 @@ import Footer from "./footer";
 const styles = {
   header: {
     fontSize: "40px",
-    paddingTop: "40%",
-    paddingBottom: "5%",
+    paddingTop: "35%",
+    paddingBottom: "3%",
     textAlign: "center"
   },
   secondaryHeaders: {
@@ -24,7 +24,7 @@ const styles = {
     width: "90%",
     textAlign: "justify",
     lineHeight: "40px",
-    paddingBottom: "5%"
+    paddingBottom: "2%"
   },
   detailsText: {
     textAlign: "center",
