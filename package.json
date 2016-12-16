@@ -28,7 +28,7 @@
     "nuke": "rm -rf dist; rm -rf .etemp; rm -rf node_modules; rm -rf .isomorphic-loader-config.json; rm -rf npm-debug.log"
   },
   "engines": {
-    "node": "^7.0.0"
+    "node": "7.0.0"
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
