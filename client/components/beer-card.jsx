@@ -1,12 +1,7 @@
 import React, {PropTypes} from "react";
-import {Card, CardActions, CardMedia, CardText} from "material-ui/Card";
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import Forward from 'material-ui/svg-icons/content/forward';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import FlatButton from "material-ui/FlatButton";
-import Divider from "material-ui/Divider";
+import {GridTile} from "material-ui/GridList";
+import IconButton from "material-ui/IconButton";
+import Forward from "material-ui/svg-icons/content/forward";
 import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
 import darkBeerImage from "../images/srm/dark.jpg";

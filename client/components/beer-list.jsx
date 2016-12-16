@@ -8,15 +8,15 @@ const ABOVE_THE_FOLD_MAX = 99;
 
 const styles = {
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
     width: "90%",
     height: "100%",
-    justifyContent: 'space-around'
+    justifyContent: "space-around"
   },
   gridList: {
-    display: 'flex',
-    overflowY: 'auto'
+    display: "flex",
+    overflowY: "auto"
   }
 };
 
