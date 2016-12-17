@@ -10,7 +10,7 @@ const styles = {
   root: {
     display: "flex",
     flexWrap: "wrap",
-    width: "90%",
+    width: "75%",
     height: "100%",
     justifyContent: "space-around"
   },

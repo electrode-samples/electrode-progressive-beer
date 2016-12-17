@@ -9,6 +9,13 @@ import darkBeerImage from "../images/srm/dark.jpg";
 const srmThresholdMin = 10;
 const srmThresholdMax = 10;
 
+const styles = {
+  title: {
+    textDecoration: "none",
+    color: "#FFFFFF"
+  }
+};
+
 /*eslint brace-style: 0*/
 export class BeerCard extends React.Component {
   render() {
@@ -29,7 +36,7 @@ export class BeerCard extends React.Component {
     return (
       <GridTile
         key={beerImage}
-        title={this.props.beer.name}
+        title={<a style={styles.title} href={routeUrl}>{this.props.beer.name}</a>}
         actionIcon={<IconButton href={routeUrl}><Forward color="white" /></IconButton>}
       >
         <img src={beerImage} />
