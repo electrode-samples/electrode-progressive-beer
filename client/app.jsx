@@ -15,8 +15,6 @@ require.ensure(["./sw-registration"], (require) => {
 }, "sw-registration");
 
 const enhancer = compose(
-  // Add middlewares you want to use in development:
-  // applyMiddleware(d1, d2, d3),
   applyMiddleware(thunk),
   DevTools.instrument()
 );

@@ -16,8 +16,8 @@ const styles = {
   },
   header: {
     fontSize: "40px",
-    paddingTop: "40%",
-    paddingBottom: "50px",
+    paddingTop: "35%",
+    paddingBottom: "3%",
     textAlign: "center"
   },
   subText: {
@@ -26,7 +26,7 @@ const styles = {
     width: "90%",
     textAlign: "justify",
     lineHeight: "40px",
-    paddingBottom: "5%"
+    paddingBottom: "2%"
   },
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",
@@ -44,7 +44,6 @@ export class Home extends React.Component {
 
     dispatch(fetchBeers(location.query.prefetch_cards));
   }
-
   render() {
     return (
       <MuiThemeProvider>

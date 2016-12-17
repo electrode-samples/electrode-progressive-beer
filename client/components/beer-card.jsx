@@ -1,19 +1,13 @@
 import React, {PropTypes} from "react";
-import {Card, CardActions, CardMedia, CardText} from "material-ui/Card";
-import FlatButton from "material-ui/FlatButton";
-import Divider from "material-ui/Divider";
+import {GridTile} from "material-ui/GridList";
+import IconButton from "material-ui/IconButton";
+import Forward from "material-ui/svg-icons/content/forward";
 import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
 import darkBeerImage from "../images/srm/dark.jpg";
 
 const srmThresholdMin = 10;
 const srmThresholdMax = 10;
-const styles = {
-  card: {
-    width: "250px",
-    height: "240px"
-  }
-};
 
 /*eslint brace-style: 0*/
 export class BeerCard extends React.Component {
@@ -33,21 +27,13 @@ export class BeerCard extends React.Component {
     }
 
     return (
-      <Card style={styles.card}>
-        <CardMedia>
-          <img src={beerImage} alt="Beer Icon" />
-        </CardMedia>
-
-        <CardText>
-          {this.props.beer.name}
-        </CardText>
-
-        <Divider />
-
-        <CardActions>
-          <FlatButton label="LEARN MORE" href={routeUrl}/>
-        </CardActions>
-      </Card>
+      <GridTile
+        key={beerImage}
+        title={this.props.beer.name}
+        actionIcon={<IconButton href={routeUrl}><Forward color="white" /></IconButton>}
+      >
+        <img src={beerImage} />
+      </GridTile>
     );
   }
 }

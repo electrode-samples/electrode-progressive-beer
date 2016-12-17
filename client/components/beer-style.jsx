@@ -12,13 +12,13 @@ const styles = {
   },
   header: {
     fontSize: "40px",
-    paddingTop: "40%",
-    paddingBottom: "50px",
+    paddingTop: "35%",
+    paddingBottom: "3%",
     textAlign: "center"
   },
   availableHeader: {
     fontSize: "40px",
-    paddingTop: "5%",
+    paddingTop: "2%",
     paddingBottom: "1%",
     textAlign: "center"
   },
@@ -27,7 +27,8 @@ const styles = {
     fontSize: "20px",
     width: "90%",
     textAlign: "justify",
-    lineHeight: "40px"
+    lineHeight: "40px",
+    paddingBottom: "2%"
   }
 };
 

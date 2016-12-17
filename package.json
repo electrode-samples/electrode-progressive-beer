@@ -28,7 +28,7 @@
     "nuke": "rm -rf dist; rm -rf .etemp; rm -rf node_modules; rm -rf .isomorphic-loader-config.json; rm -rf npm-debug.log"
   },
   "engines": {
-    "node": "^7.0.0"
+    "node": "7.0.0"
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
@@ -36,7 +36,7 @@
     "electrode-archetype-react-app": "^1.5.0",
     "electrode-csrf-jwt": "^1.0.0",
     "electrode-react-ssr-caching": "^0.1.5",
-    "electrode-react-webapp": "^1.1.0",
+    "electrode-react-webapp": "^1.2.0",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
