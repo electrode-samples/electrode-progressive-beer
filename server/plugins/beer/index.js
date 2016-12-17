@@ -2,7 +2,7 @@
 
 import beerStyles from "./data/styles.json";
 
-const DEFAULT_BEER_CARDS = 99;
+const DEFAULT_BEER_CARDS = 300;
 
 exports.register = (server, options, next) => {
   const getBeerStyles = (request, reply) => {

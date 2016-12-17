@@ -4,7 +4,7 @@ import {GridList} from "material-ui/GridList";
 import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
-const ABOVE_THE_FOLD_MAX = 99;
+const ABOVE_THE_FOLD_MAX = 300;
 
 const styles = {
   root: {
@@ -38,8 +38,10 @@ export class BeerList extends React.Component {
     const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
 
+    const cols = beerCards.length === 1 ? 1 : 3;
+
     return (
-      <GridList style={styles.gridList} cols={3} padding={60}>
+      <GridList style={styles.gridList} cols={cols} padding={60}>
         {beerCards}
       </GridList>
     );

@@ -34,8 +34,6 @@ const styles = {
 
 class BeerStyle extends React.Component {
   render() {
-    const beerStyleDesc = this.props.data.description;
-
     return (
       <MuiThemeProvider>
         <div>
@@ -46,7 +44,7 @@ class BeerStyle extends React.Component {
           />
 
           <h1 style={styles.header}>This Beer's Style</h1>
-          <p style={styles.subText}>{beerStyleDesc}</p>
+          <p style={styles.subText}>{this.props.data.description}</p>
 
           <h1 style={styles.availableHeader}>Available Beers</h1>
 
