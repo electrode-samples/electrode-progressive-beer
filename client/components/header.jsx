@@ -26,8 +26,16 @@ const styles = {
     marginLeft: "5px"
   },
   titleStyle: {
-    fontSize: "400%",
+    fontSize: "460%",
     paddingBottom: "3%"
+  },
+  subtitleStyle: {
+    color: "#FFFFFF",
+    fontSize: "135%",
+    fontStyle: "italic"
+  },
+  img: {
+    height: "400px"
   },
   BeerImgCard: {
     fontFamily: "'Gabriela', serif",
@@ -64,11 +72,12 @@ export class Header extends React.Component {
                 title={this.props.title}
                 titleStyle={styles.titleStyle}
                 subtitle={this.props.subtitle}
+                subtitleStyle={styles.subtitleStyle}
               />
             }
             overlayContentStyle={styles.overlayContentStyle}
           >
-            <img src={beerImage} alt="beer background" />
+            <img style={styles.img} src={beerImage} alt="beer background" />
           </CardMedia>
         </Card>
       </div>
