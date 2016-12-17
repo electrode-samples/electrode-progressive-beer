@@ -1,13 +1,20 @@
 import React, {PropTypes} from "react";
 import {GridTile} from "material-ui/GridList";
 import IconButton from "material-ui/IconButton";
-import Forward from "material-ui/svg-icons/content/forward";
+import ForwardIcon from "material-ui/svg-icons/content/forward";
 import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
 import darkBeerImage from "../images/srm/dark.jpg";
 
 const srmThresholdMin = 10;
 const srmThresholdMax = 10;
+
+const styles = {
+  title: {
+    textDecoration: "none",
+    color: "#FFFFFF"
+  }
+};
 
 /*eslint brace-style: 0*/
 export class BeerCard extends React.Component {
@@ -29,8 +36,8 @@ export class BeerCard extends React.Component {
     return (
       <GridTile
         key={beerImage}
-        title={this.props.beer.name}
-        actionIcon={<IconButton href={routeUrl}><Forward color="white" /></IconButton>}
+        title={<a style={styles.title} href={routeUrl}>{this.props.beer.name}</a>}
+        actionIcon={<IconButton href={routeUrl}><ForwardIcon color="white" /></IconButton>}
       >
         <img src={beerImage} />
       </GridTile>

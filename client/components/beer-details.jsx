@@ -8,7 +8,7 @@ import Footer from "./footer";
 const styles = {
   header: {
     fontSize: "40px",
-    paddingTop: "35%",
+    paddingTop: "360px",
     paddingBottom: "3%",
     textAlign: "center"
   },
@@ -66,7 +66,7 @@ export class BeerDetails extends React.Component {
           <h1 style={styles.secondaryHeaders}>Brewery Info</h1>
           <p style={styles.detailsText}>Brewery Name: {this.props.data.breweries[0].name}</p>
           <p style={styles.detailsText}>About: {this.props.data.breweries[0].description}</p>
-          <p style={styles.detailsText}>Website: {this.props.data.breweries[0].website}</p>
+          <p style={styles.detailsText}>Website: <a href={this.props.data.breweries[0].website}>{this.props.data.breweries[0].website}</a></p>
           <p style={styles.detailsText}>Established: {this.props.data.breweries[0].established}</p>
 
           <div style={styles.stylesButton}><FlatButton label="Back to Styles" href={`/beerstyle?style=${this.props.data.style.id}`}/></div>

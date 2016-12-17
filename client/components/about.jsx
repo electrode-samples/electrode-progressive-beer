@@ -9,14 +9,12 @@ import brewerydbImage from "../images/brewerydb-logo.png";
 const styles = {
   titleHeader: {
     fontSize: "40px",
-    paddingTop: "40%",
-    paddingBottom: "5%",
+    paddingTop: "360px",
     textAlign: "center"
   },
   dataHeader: {
     fontSize: "40px",
-    paddingTop: "5%",
-    paddingBottom: "1%",
+    paddingTop: "2%",
     textAlign: "center"
   },
   subText: {
