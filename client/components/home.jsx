@@ -1,7 +1,10 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
+import {createFilter} from "react-search-input";
+import SearchIcon from "material-ui/svg-icons/action/search";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
+import TextField from "material-ui/TextField";
 import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import Header from "./header";
 import BeerList from "./beer-list";
@@ -9,6 +12,7 @@ import Footer from "./footer";
 import beerMapImage from "../images/beer-map.png";
 import {fetchBeers} from "../actions";
 
+const KEYS_TO_FILTERS = ["name"];
 const styles = {
   root: {
     minHeight: "800px",
@@ -28,6 +32,10 @@ const styles = {
     lineHeight: "40px",
     paddingBottom: "2%"
   },
+  search: {
+    textAlign: "center",
+    paddingBottom: "3%"
+  },
   overlayContentStyle: {
     fontFamily: "'Gabriela', serif",
     textAlign: "center",
@@ -39,12 +47,24 @@ const styles = {
 /*eslint no-class-assign: 0*/
 /*eslint react/no-did-mount-set-state: 0*/
 export class Home extends React.Component {
+  constructor(...args) {
+    super(...args);
+
+    this.state = {searchTerm: ""};
+    this.handleSearchUpdate = this.handleSearchUpdate.bind(this);
+  }
   componentDidMount() {
     const {dispatch, location} = this.props;
 
     dispatch(fetchBeers(location.query.prefetch_cards));
   }
+  handleSearchUpdate(term) {
+    this.setState({searchTerm: term.target.value});
+  }
   render() {
+    const filteredStyles = this.props.data.filter(
+      createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
+    );
     return (
       <MuiThemeProvider>
         <div>
@@ -61,8 +81,18 @@ export class Home extends React.Component {
             everything there is to know about beers! Explore the many beer styles in
             list below for more information.</p>
 
+          <div style={styles.search}>
+            <TextField
+              className="search-input"
+              floatingLabelText="Filter Beer Styles"
+              value={this.state.searchTerm}
+              onChange={this.handleSearchUpdate}
+            />
+            <SearchIcon/>
+          </div>
+
           <div style={styles.root}>
-            <BeerList beers={this.props.data}/>
+            <BeerList beers={filteredStyles}/>
           </div>
 
           <AboveTheFoldOnlyServerRender skip={true}>
