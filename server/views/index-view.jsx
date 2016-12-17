@@ -8,6 +8,8 @@ import beerStyles from "../plugins/beer/data/styles.json";
 const Promise = require("bluebird");
 const fs = require('fs');
 
+const DEFAULT_BEER_CARDS = 300;
+
 function importBeers(styleId){
   let result = [];
   let counter = 0;
@@ -32,8 +34,6 @@ function importBeers(styleId){
 
   return result;
 }
-
-const DEFAULT_BEER_CARDS = 99;
 
 function storeInitializer(req) {
   let initialState;
