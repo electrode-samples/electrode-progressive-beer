@@ -1,6 +1,6 @@
 # Electrode Progressive Beer
 
-[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]]
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 This repository is created to demonstrate Progressive Web Application using [Electrode Framework](https://github.com/electrode-io)
 
