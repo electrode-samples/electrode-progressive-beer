@@ -5,6 +5,8 @@ import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
 const ABOVE_THE_FOLD_MAX = 300;
+const BEER_CARDS_MIN = 1;
+const BEER_CARDS_MAX = 3;
 
 const styles = {
   root: {
@@ -37,8 +39,7 @@ export class BeerList extends React.Component {
   renderBeerCards(start, end) {
     const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
-
-    const cols = beerCards.length === 1 ? 1 : 3;
+    const cols = beerCards.length === 1 ? BEER_CARDS_MIN : BEER_CARDS_MAX;
 
     return (
       <GridList style={styles.gridList} cols={cols} padding={60}>
