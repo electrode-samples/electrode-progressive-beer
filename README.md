@@ -1,4 +1,7 @@
 # Electrode Progressive Beer
+
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]]
+
 This repository is created to demonstrate Progressive Web Application using [Electrode Framework](https://github.com/electrode-io)
 
 # Demo
@@ -12,3 +15,8 @@ gulp build
 npm run server
 ```
 Then open localhost:3000 in a browser.
+
+[travis-image]: https://travis-ci.org/electrode-samples/electrode-progressive-beer.svg?branch=master
+[travis-url]: https://travis-ci.org/electrode-samples/electrode-progressive-beer
+[daviddm-image]: https://david-dm.org/electrode-samples/electrode-progressive-beer.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/electrode-samples/electrode-progressive-beer
