@@ -4,6 +4,7 @@ import {routes} from "../../client/routes";
 import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
 import beerStyles from "../plugins/beer/data/styles.json";
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const Promise = require("bluebird");
 const fs = require('fs');
@@ -39,6 +40,10 @@ function storeInitializer(req) {
   let initialState;
 
   if(req.path === "/") {
+    // For Warning: Unknown prop `onTouchTap` on <button> tag.
+    // Call only once on default route
+    injectTapEventPlugin();
+
     let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
 
     let data = beerStyles.data.slice(0, firstRender);
@@ -97,6 +102,10 @@ function createReduxStore(req, match) {
 // will call this function to retrieve the content for SSR if it's enabled.
 
 module.exports = (req) => {
+  // For Warning: Material UI: userAgent should be supplied in the muiTheme context for server-side rendering
+  global.navigator = global.navigator || {};
+  global.navigator.userAgent = req.headers['user-agent'] || 'all';
+
   const app = req.server && req.server.app || req.app;
   if (!app.routesEngine) {
     app.routesEngine = new ReduxRouterEngine({routes, createReduxStore});

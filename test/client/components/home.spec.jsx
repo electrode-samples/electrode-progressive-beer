@@ -42,9 +42,7 @@ describe("Home", () => {
       initialState,
       applyMiddleware(thunk)
     );
-    /*eslint-disable*/
-    const location = {query: {prefetch_cards: DEFAULT_BEER_CARDS}};
-    /*eslint-enable*/
+    const location = {query: {prefetch_cards: DEFAULT_BEER_CARDS}}; //eslint-disable-line
 
     component = ReactDOM.render(
       <Home

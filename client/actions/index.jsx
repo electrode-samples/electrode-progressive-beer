@@ -1,3 +1,5 @@
+import fetch from "isomorphic-fetch";
+
 export const RECEIVE_BEERS = "RECEIVE_BEERS";
 export const REQUEST_BEERS = "REQUEST_BEERS";
 
