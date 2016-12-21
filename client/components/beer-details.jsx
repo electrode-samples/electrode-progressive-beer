@@ -19,12 +19,10 @@ const styles = {
   header: {
     fontSize: "40px",
     paddingTop: "360px",
-    paddingBottom: "3%",
     textAlign: "center"
   },
   secondaryHeaders: {
     fontSize: "30px",
-    paddingTop: "2%",
     paddingBottom: "2%",
     textAlign: "center"
   },
@@ -36,13 +34,6 @@ const styles = {
     lineHeight: "40px",
     paddingBottom: "2%"
   },
-  detailsText: {
-    textAlign: "center",
-    margin: "0 auto",
-    fontSize: "20px",
-    width: "90%",
-    lineHeight: "40px"
-  },
   list: {
     margin: "0 auto",
     width: "60%"
@@ -51,8 +42,8 @@ const styles = {
     width: "100%",
     textAlign: "center",
     margin: "0 auto",
-    paddingTop: "10%",
-    paddingBottom: "10%"
+    paddingTop: "3%",
+    paddingBottom: "3%"
   }
 };
 
