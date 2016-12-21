@@ -40,20 +40,15 @@ function storeInitializer(req) {
   let initialState;
 
   if(req.path === "/") {
-    // For Warning: Unknown prop `onTouchTap` on <button> tag.
-    // Call only once on default route
-    injectTapEventPlugin();
-
     let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
-
     let data = beerStyles.data.slice(0, firstRender);
 
     initialState = {data};
   } else if(req.path === "/beerstyle") {
     let styleId = Number(req.url.query.style);
     let data = null;
-
     let beersOfStyleID = importBeers(styleId);
+
     for (let i = 0; i < beerStyles.data.length; i++) {
       if (beerStyles.data[i].id === styleId){
         data = beerStyles.data[i];
@@ -67,8 +62,8 @@ function storeInitializer(req) {
     let styleId = Number(req.url.query.style);
     let beerId = req.url.query.beer;
     let data = null;
-
     let beers = importBeers(styleId);
+
     for (let i = 0; i < beers.length; i++) {
       if (beers[i].id === beerId){
         data = beers[i];
@@ -108,6 +103,8 @@ module.exports = (req) => {
 
   const app = req.server && req.server.app || req.app;
   if (!app.routesEngine) {
+    // For Warning: Unknown prop `onTouchTap` on <button> tag.
+    injectTapEventPlugin();
     app.routesEngine = new ReduxRouterEngine({routes, createReduxStore});
   }
 
