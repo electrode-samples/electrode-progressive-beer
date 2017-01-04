@@ -1,5 +1,6 @@
-import ReduxRouterEngine from 'electrode-redux-router-engine';
-import React from 'react';
+import ReduxRouterEngine from "electrode-redux-router-engine";
+import React from "react";
+import device from "device";
 import {routes} from "../../client/routes";
 import {createStore} from "redux";
 import rootReducer from "../../client/reducers";
@@ -37,16 +38,15 @@ function importBeers(styleId){
 }
 
 function storeInitializer(req) {
-  let initialState;
+  let data = {};
+  let initialState = {};
+  let myDevice = device(req.headers['user-agent']);
 
   if(req.path === "/") {
     let firstRender = req.url.query.prefetch_cards ? req.url.query.prefetch_cards : DEFAULT_BEER_CARDS;
-    let data = beerStyles.data.slice(0, firstRender);
-
-    initialState = {data};
+    data = beerStyles.data.slice(0, firstRender);
   } else if(req.path === "/beerstyle") {
     let styleId = Number(req.url.query.style);
-    let data = null;
     let beersOfStyleID = importBeers(styleId);
 
     for (let i = 0; i < beerStyles.data.length; i++) {
@@ -57,11 +57,9 @@ function storeInitializer(req) {
     }
 
     data.beers = beersOfStyleID;
-    initialState = {data};
   } else if(req.path === "/beerdetails") {
     let styleId = Number(req.url.query.style);
     let beerId = req.url.query.beer;
-    let data = null;
     let beers = importBeers(styleId);
 
     for (let i = 0; i < beers.length; i++) {
@@ -70,12 +68,11 @@ function storeInitializer(req) {
         break;
       }
     }
-
-    initialState = {data};
   } else {
-    initialState = {};
+    return createStore(rootReducer, initialState);
   }
 
+  initialState = {data, phone: myDevice.is('phone')};
   return createStore(rootReducer, initialState);
 }
 

@@ -5,8 +5,9 @@ import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
 const ABOVE_THE_FOLD_MAX = 300;
-const BEER_CARDS_MIN = 1;
-const BEER_CARDS_MAX = 3;
+const BEER_CARDS_ONE = 1;
+const BEER_CARDS_TWO = 2;
+const BEER_CARDS_THREE = 3;
 
 const styles = {
   root: {
@@ -39,7 +40,13 @@ export class BeerList extends React.Component {
   renderBeerCards(start, end) {
     const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
-    const cols = beerCards.length === 1 ? BEER_CARDS_MIN : BEER_CARDS_MAX;
+    let cols = this.props.phone ? BEER_CARDS_ONE : BEER_CARDS_THREE;
+
+    if (!this.props.phone && beerCards.length === BEER_CARDS_ONE) {
+      cols = BEER_CARDS_ONE;
+    } else if (!this.props.phone && beerCards.length === BEER_CARDS_TWO) {
+      cols = BEER_CARDS_TWO;
+    }
 
     return (
       <GridList style={styles.gridList} cols={cols} padding={60}>
@@ -51,7 +58,8 @@ export class BeerList extends React.Component {
 
 BeerList.propTypes = {
   beers: PropTypes.arrayOf(PropTypes.object),
-  from: PropTypes.string
+  from: PropTypes.string,
+  phone: PropTypes.bool
 };
 
 BeerList.defaultProps = {
