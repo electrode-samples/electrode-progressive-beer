@@ -1,15 +1,14 @@
 import React, {PropTypes} from "react";
 import AppBar from "material-ui/AppBar";
-import IconButton from "material-ui/IconButton";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import homeImage from "../images/beer.jpg";
 import aboutImage from "../images/about.jpg";
 import beerStyleImage from "../images/styles.jpg";
 import beerDetailsImage from "../images/beer-page.jpg";
-import beerIcon from "../images/beer-icon.svg";
 
-const styles = {
+// eslint-disable-next-line
+let styles = {
   overlayContentStyle: {
     textAlign: "center",
     height: "50%",
@@ -26,8 +25,9 @@ const styles = {
     marginLeft: "5px"
   },
   titleStyle: {
-    fontSize: "460%",
-    paddingBottom: "3%"
+    fontSize: "300%",
+    paddingBottom: "3%",
+    lineHeight: "55px"
   },
   subtitleStyle: {
     color: "#FFFFFF",
@@ -47,6 +47,8 @@ const styles = {
 
 export class Header extends React.Component {
   render() {
+    styles.titleStyle.fontSize = this.props.phone ? "300%" : "460%";
+
     let beerImage = homeImage;
     if (this.props.image === "about") {
       beerImage = aboutImage;
@@ -61,7 +63,7 @@ export class Header extends React.Component {
         <AppBar
           title={<a style={styles.appText} href="/">Progressive Beer</a>}
           style={styles.appBarStyle}
-          iconElementLeft={<IconButton><beerIcon /></IconButton>}
+          showMenuIconButton={false}
           iconElementRight={<FlatButton label="About" href="/about" />}
         />
 
@@ -88,7 +90,8 @@ export class Header extends React.Component {
 Header.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  phone: PropTypes.bool
 };
 
 Header.defaultProps = {

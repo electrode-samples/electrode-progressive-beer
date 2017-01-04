@@ -33,6 +33,7 @@
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.3",
     "bluebird": "^3.4.6",
+    "device": "^0.3.8",
     "electrode-archetype-react-app": "^1.6.0",
     "electrode-csrf-jwt": "^1.0.0",
     "electrode-react-ssr-caching": "^0.1.5",

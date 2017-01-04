@@ -71,7 +71,8 @@ export class Home extends React.Component {
           <Header
             image="header"
             title="Progressive Beer"
-            subtitle="The Ultimate Guide to Beer all around the World"
+            subtitle="Life, Liberty, and the Pursuit of Beer"
+            phone={this.props.phone}
           />
 
           <h1 style={styles.header}>Explore</h1>
@@ -92,7 +93,7 @@ export class Home extends React.Component {
           </div>
 
           <div style={styles.root}>
-            <BeerList beers={filteredStyles}/>
+            <BeerList beers={filteredStyles} phone={this.props.phone}/>
           </div>
 
           <AboveTheFoldOnlyServerRender skip={true}>
@@ -121,6 +122,7 @@ Home = connect()(Home);
 
 Home.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
+  phone: PropTypes.bool,
   location: PropTypes.object,
   dispatch: PropTypes.func
 };
@@ -134,11 +136,13 @@ class HomeWrapper extends React.Component {
 }
 
 HomeWrapper.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.arrayOf(PropTypes.object),
+  phone: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
-  data: state && state.data
+  data: state && state.data,
+  phone: state.phone
 });
 
 export default connect(

@@ -15,7 +15,8 @@ import Divider from "material-ui/Divider";
 import Header from "./header";
 import Footer from "./footer";
 
-const styles = {
+// eslint-disable-next-line
+let styles = {
   header: {
     fontSize: "40px",
     paddingTop: "360px",
@@ -36,7 +37,7 @@ const styles = {
   },
   list: {
     margin: "0 auto",
-    width: "60%"
+    width: "95%"
   },
   stylesButton: {
     width: "100%",
@@ -50,6 +51,8 @@ const styles = {
 /* eslint-disable max-len */
 export class BeerDetails extends React.Component {
   render() {
+    styles.list.width = this.props.phone ? "95%" : "60%";
+
     return (
       <MuiThemeProvider>
         <div>
@@ -57,6 +60,7 @@ export class BeerDetails extends React.Component {
             image="beerdetails"
             title={this.props.data.name}
             subtitle={this.props.data.style.name}
+            phone={this.props.phone}
           />
 
           <h1 style={styles.header}>Features</h1>
@@ -133,11 +137,13 @@ export class BeerDetails extends React.Component {
 }
 
 BeerDetails.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  phone: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
-  data: state.data
+  data: state.data,
+  phone: state.phone
 });
 
 export default connect(

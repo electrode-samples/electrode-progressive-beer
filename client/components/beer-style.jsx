@@ -41,6 +41,7 @@ class BeerStyle extends React.Component {
             image="beerstyle"
             title={this.props.data.name}
             subtitle=""
+            phone={this.props.phone}
           />
 
           <h1 style={styles.header}>This Beer's Style</h1>
@@ -49,7 +50,7 @@ class BeerStyle extends React.Component {
           <h1 style={styles.availableHeader}>Available Beers</h1>
 
           <div style={styles.root}>
-            <BeerList beers={this.props.data.beers} from="styles"/>
+            <BeerList beers={this.props.data.beers} from="styles" phone={this.props.phone}/>
           </div>
 
           <Footer />
@@ -61,11 +62,13 @@ class BeerStyle extends React.Component {
 
 BeerStyle.propTypes = {
   data: PropTypes.object,
+  phone: PropTypes.bool,
   location: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
-  data: state.data
+  data: state.data,
+  phone: state.phone
 });
 
 export default connect(
