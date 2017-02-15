@@ -9,7 +9,16 @@ module.exports = {
       urlPattern: "\/$"
     }, {
       handler: "fastest",
-      urlPattern: "/getBeerStyles/"
+      urlPattern: "\/about"
+    }, {
+      handler: "fastest",
+      urlPattern: "\/beerstyle"
+    }, {
+      handler: "fastest",
+      urlPattern: "\/beerdetails"
+    }, {
+      handler: "fastest",
+      urlPattern: "\/getBeerStyles"
     }, {
       handler: "fastest",
       urlPattern: "/^https?:\/\/fonts.gstatic.com\//"
