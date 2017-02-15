@@ -25,7 +25,7 @@
     "start": "gulp server",
     "test": "gulp check",
     "heroku-postbuild": "gulp build",
-    "nuke": "rm -rf dist .etemp .etmp .build node_modules .isomorphic-loader-config.json npm-debug.log"
+    "nuke": "rm -rf dist .etemp .etmp .build node_modules .isomorphic-loader-config.json npm-debug.log coverage"
   },
   "engines": {
     "node": "7.0.0"
@@ -43,7 +43,7 @@
     "electrode-static-paths": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.2",
-    "material-ui": "^0.16.5",
+    "material-ui": "^0.17.0",
     "react-search-input": "^0.10.3",
     "react-tap-event-plugin": "^2.0.0",
     "redux-thunk": "^2.1.0"
