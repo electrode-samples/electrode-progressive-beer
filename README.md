@@ -1,6 +1,6 @@
 # Electrode Progressive Beer
 
-[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-image]][daviddm-dev-url]
 
 This repository is created to demonstrate Progressive Web Application using [Electrode Framework](https://github.com/electrode-io)
 
@@ -20,3 +20,4 @@ Then open `localhost:3000` in a browser.
 [travis-url]: https://travis-ci.org/electrode-samples/electrode-progressive-beer
 [daviddm-image]: https://david-dm.org/electrode-samples/electrode-progressive-beer.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/electrode-samples/electrode-progressive-beer
+[daviddm-dev-url]: https://david-dm.org/electrode-samples/electrode-progressive-beer?type=dev
