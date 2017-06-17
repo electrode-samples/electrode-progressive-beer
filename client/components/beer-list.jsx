@@ -39,7 +39,7 @@ export class BeerList extends React.Component {
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
 
     return (
-      <GridList cols='auto' cellHeight='auto' padding={30}>
+      <GridList cols="auto" cellHeight="auto" padding={30}>
         {beerCards}
       </GridList>
     );
