@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardMedia, CardText} from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 
 import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
@@ -12,9 +12,9 @@ const srmThresholdMax = 20;
 
 const styles = {
   card: {
-     width: '75%',
-     height: '100%'
-   },
+     width: "75%",
+     height: "100%"
+   }
 };
 
 /*eslint brace-style: 0*/
@@ -24,7 +24,7 @@ export class BeerCard extends React.Component {
       ? this.props.beer.srmMax
       : this.props.beer.style && this.props.beer.style.srmMax;
     let beerImage = lightBeerImage;
-    
+
     if (beerSrmMax > srmThresholdMin && beerSrmMax < srmThresholdMax) {
       beerImage = amberBeerImage;
     } else if (beerSrmMax > srmThresholdMax) {
