@@ -1,7 +1,9 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
-import BeerList from "./beer-list";
+
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
+import BeerList from "./beer-list";
 import Header from "./header";
 import Footer from "./footer";
 

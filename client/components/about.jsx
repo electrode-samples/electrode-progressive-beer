@@ -1,6 +1,8 @@
 import React from "react";
+
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
+
 import Header from "./header";
 import Footer from "./footer";
 import beerMapImage from "../images/beer-map.png";
@@ -47,10 +49,11 @@ const About = () => (
 
       <h1 style={styles.titleHeader}> About </h1>
       <p style={styles.subText}> Progressive Beer is a web app that is designed to leverage
-        all the great features of Service Workers and build a truly Progressive Web App.
-        If you'd like to learn more about Progressive Web Apps, I recommend checking out
-        <span style={styles.link}>
-         <a href="https://developers.google.com/web/progressive-web-apps/"> this link</a>
+        all the great features of <span style={styles.link}>
+          <a href="http://www.electrode.io/">Electrode</a> </span> and Service Workers and
+        build a truly Progressive Web App. If you'd like to learn more about Progressive
+        Web Apps, I recommend checking out <span style={styles.link}>
+          <a href="https://developers.google.com/web/progressive-web-apps/">this link</a>
         </span> for more information. Oh, and once you've visited a web page on this site,
         it will be available offline!
       </p>

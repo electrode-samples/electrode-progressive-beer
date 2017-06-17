@@ -1,11 +1,13 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {createFilter} from "react-search-input";
+import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
+
 import SearchIcon from "material-ui/svg-icons/action/search";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import TextField from "material-ui/TextField";
-import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
+
 import Header from "./header";
 import BeerList from "./beer-list";
 import Footer from "./footer";
@@ -14,7 +16,7 @@ import {fetchBeers} from "../actions";
 
 const KEYS_TO_FILTERS = ["name"];
 const styles = {
-  root: {
+  beerList: {
     minHeight: "800px",
     textAlign: "-webkit-center"
   },
@@ -92,7 +94,7 @@ export class Home extends React.Component {
             <SearchIcon/>
           </div>
 
-          <div style={styles.root}>
+          <div style={styles.beerList}>
             <BeerList beers={filteredStyles} phone={this.props.phone}/>
           </div>
 

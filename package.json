@@ -1,23 +1,9 @@
 {
   "name": "electrode-app-with-electrode-modules",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "electrode app with electrode modules",
   "homepage": "https://github.com/electrode-io",
-  "contributors": [],
-  "files": [
-    "lib"
-  ],
   "main": "server/index.js",
-  "keywords": [
-    "electrode",
-    "app",
-    "confippet"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/electrode-io/electrode-app-with-electrode-modules.git"
-  },
-  "license": "Apache-2.0",
   "scripts": {
     "build": "gulp build",
     "coverage": "gulp check",
@@ -27,26 +13,23 @@
     "heroku-postbuild": "gulp build",
     "nuke": "rm -rf dist .etemp .etmp .build node_modules .isomorphic-loader-config.json npm-debug.log coverage"
   },
-  "engines": {
-    "node": "7.0.0"
-  },
   "dependencies": {
-    "above-the-fold-only-server-render": "^1.0.3",
-    "bluebird": "^3.4.6",
-    "device": "^0.3.8",
+    "above-the-fold-only-server-render": "^1.0.0",
+    "bluebird": "^3.5.0",
+    "device": "^0.3.0",
     "electrode-archetype-react-app": "^1.6.0",
-    "electrode-csrf-jwt": "^1.0.0",
-    "electrode-react-ssr-caching": "^0.1.5",
-    "electrode-react-webapp": "^1.2.0",
-    "electrode-redux-router-engine": "^1.2.6",
-    "electrode-server": "^1.2.1",
+    "electrode-csrf-jwt": "^1.2.0",
+    "electrode-react-ssr-caching": "^0.1.0",
+    "electrode-react-webapp": "^1.6.0",
+    "electrode-redux-router-engine": "^1.4.0",
+    "electrode-server": "^1.2.0",
     "electrode-static-paths": "^1.0.0",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.2",
-    "material-ui": "^0.17.0",
-    "react-search-input": "^0.10.3",
+    "isomorphic-fetch": "^2.2.0",
+    "lodash": "^4.17.0",
+    "material-ui": "^0.18.0",
+    "react-search-input": "^0.11.0",
     "react-tap-event-plugin": "^2.0.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "electrode-archetype-react-app-dev": "^1.6.1",
@@ -56,5 +39,21 @@
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11"
-  }
+  },
+  "engines": {
+    "node": "7.0.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "electrode",
+    "app",
+    "pwa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electrode-io/electrode-app-with-electrode-modules.git"
+  },
+  "license": "Apache-2.0"
 }

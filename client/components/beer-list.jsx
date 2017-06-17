@@ -1,25 +1,22 @@
 import React, {PropTypes} from "react";
+
 import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
 import {GridList} from "material-ui/GridList";
+
 import BeerCard from "./beer-card";
 
 const ABOVE_THE_FOLD_MIN = 0;
 const ABOVE_THE_FOLD_MAX = 300;
-const BEER_CARDS_ONE = 1;
-const BEER_CARDS_TWO = 2;
-const BEER_CARDS_THREE = 3;
 
 const styles = {
   root: {
     display: "flex",
     flexWrap: "wrap",
-    width: "70%",
+    width: "100%",
     height: "100%",
+    margin: "auto",
+    paddingLeft: "5%",
     justifyContent: "space-around"
-  },
-  gridList: {
-    display: "flex",
-    overflowY: "auto"
   }
 };
 
@@ -40,16 +37,9 @@ export class BeerList extends React.Component {
   renderBeerCards(start, end) {
     const beerCards = this.props.beers.slice(start, end).map((beer, i) =>
       <BeerCard key={i} beer={beer} from={this.props.from}/>);
-    let cols = this.props.phone ? BEER_CARDS_ONE : BEER_CARDS_THREE;
-
-    if (!this.props.phone && beerCards.length === BEER_CARDS_ONE) {
-      cols = BEER_CARDS_ONE;
-    } else if (!this.props.phone && beerCards.length === BEER_CARDS_TWO) {
-      cols = BEER_CARDS_TWO;
-    }
 
     return (
-      <GridList style={styles.gridList} cols={cols} padding={60}>
+      <GridList cols='auto' cellHeight='auto' padding={30}>
         {beerCards}
       </GridList>
     );
