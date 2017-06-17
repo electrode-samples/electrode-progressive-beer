@@ -1,30 +1,33 @@
 import React, {PropTypes} from "react";
-import {GridTile} from "material-ui/GridList";
-import IconButton from "material-ui/IconButton";
-import ForwardIcon from "material-ui/svg-icons/content/forward";
+
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
 import lightBeerImage from "../images/srm/light.jpg";
 import amberBeerImage from "../images/srm/amber.jpg";
 import darkBeerImage from "../images/srm/dark.jpg";
 
 const srmThresholdMin = 10;
-const srmThresholdMax = 10;
+const srmThresholdMax = 20;
 
 const styles = {
-  title: {
-    textDecoration: "none",
-    color: "#FFFFFF"
-  }
+  card: {
+     width: '75%',
+     height: '100%'
+   },
 };
 
 /*eslint brace-style: 0*/
 export class BeerCard extends React.Component {
   render() {
+    const beerSrmMax = this.props.beer.srmMax
+      ? this.props.beer.srmMax
+      : this.props.beer.style && this.props.beer.style.srmMax;
     let beerImage = lightBeerImage;
-
-    if (this.props.beer.srmMax > srmThresholdMin && this.props.beer.srmMax < srmThresholdMax) {
+    
+    if (beerSrmMax > srmThresholdMin && beerSrmMax < srmThresholdMax) {
       beerImage = amberBeerImage;
-    }
-    else if (this.props.beer.srmMax > srmThresholdMax) {
+    } else if (beerSrmMax > srmThresholdMax) {
       beerImage = darkBeerImage;
     }
 
@@ -34,13 +37,17 @@ export class BeerCard extends React.Component {
     }
 
     return (
-      <GridTile
-        key={beerImage}
-        title={<a style={styles.title} href={routeUrl}>{this.props.beer.name}</a>}
-        actionIcon={<IconButton href={routeUrl}><ForwardIcon color="white" /></IconButton>}
-      >
-        <img src={beerImage} />
-      </GridTile>
+      <Card style={styles.card} key={beerImage}>
+       <CardMedia>
+         <img src={beerImage} />
+       </CardMedia>
+       <CardText>
+         {this.props.beer.name}
+       </CardText>
+       <CardActions>
+         <FlatButton label="LEARN MORE" href={routeUrl}/>
+       </CardActions>
+     </Card>
     );
   }
 }

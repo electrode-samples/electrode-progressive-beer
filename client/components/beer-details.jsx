@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
+
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import FlatButton from "material-ui/FlatButton";
 import {List, ListItem} from "material-ui/List";
@@ -12,6 +13,7 @@ import Info from "material-ui/svg-icons/action/info";
 import Place from "material-ui/svg-icons/maps/place";
 import Cake from "material-ui/svg-icons/social/cake";
 import Divider from "material-ui/Divider";
+
 import Header from "./header";
 import Footer from "./footer";
 

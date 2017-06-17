@@ -1,7 +1,9 @@
 import React, {PropTypes} from "react";
+
 import AppBar from "material-ui/AppBar";
 import {Card, CardMedia, CardTitle} from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
+
 import homeImage from "../images/beer.jpg";
 import aboutImage from "../images/about.jpg";
 import beerStyleImage from "../images/styles.jpg";
@@ -35,13 +37,15 @@ let styles = {
     fontStyle: "italic"
   },
   img: {
-    height: "400px"
+    width: "100%",
+    height: "400px",
+    objectFit: "cover"
   },
   BeerImgCard: {
     fontFamily: "'Gabriela', serif",
     position: "absolute",
     top: "0",
-    width: "99%"
+    width: "99.2%"
   }
 };
 
