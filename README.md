@@ -12,7 +12,7 @@ To build the example locally, run:
 ```
 npm i
 gulp build
-npm run server
+npm run start
 ```
 Then open `localhost:3000` in a browser.
 
