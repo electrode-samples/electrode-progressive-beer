@@ -41,7 +41,7 @@
     "redux-devtools-log-monitor": "^1.3.0"
   },
   "engines": {
-    "node": "6.10.3",
+    "node": "6.11.1",
     "npm": "3.10.10"
   },
   "files": [
